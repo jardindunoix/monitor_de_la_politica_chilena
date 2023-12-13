@@ -24,14 +24,11 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        YoYo.with(Techniques.ZoomIn).duration(1700).playOn(binding.iconBrandInclude.iconBrand)
-//        YoYo.with(Techniques.ZoomInDown).duration(1700).playOn(binding.iconBrandInclude.textSplash)//
-
-        YoYo.with(Techniques.ZoomIn).duration(1500).playOn(binding.iconBrandInclude.iconBrand)
-        YoYo.with(Techniques.ZoomInDown).duration(1500).playOn(binding.iconBrandInclude.textSplash)
+        YoYo.with(Techniques.ZoomIn).duration(900).playOn(binding.iconBrandInclude.iconBrand)
+        YoYo.with(Techniques.ZoomInDown).duration(900).playOn(binding.iconBrandInclude.textSplash)
 
         lifecycleScope.launch {
-            delay(2500)
+            delay(2000)
             intent = Intent(this@SplashActivity, MainActivity::class.java)
             startActivity(intent)
             finish()
