@@ -27,3 +27,5 @@ Wapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/MainAct
 lapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/diputados/DiputadosActualesAdapter.kt,7/a/7a326aaf1f63769a90c984feb741445c722b0eb2
 ù
 mapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/diputados/DiputadosActualesFragment.kt,5/f/5f32f78f7b3be4e467678a438bf9333977d8d02a
+ù
+mapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/senadores/SenadoresActualesFragment.kt,4/b/4baffd15c0b518764c0e1927a92237c0fdd63d61

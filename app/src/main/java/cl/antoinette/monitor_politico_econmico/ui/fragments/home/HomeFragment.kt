@@ -27,30 +27,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-//        buttonIrADipActuales.setOnClickListener {
-//            Toast.makeText(activity, "Diputados", Toast.LENGTH_SHORT).show()
-//        }
-
-
         buttonIrADipActuales.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_diputadosFragment)
         }
-//
-//        buttonIrASenActuales.setOnClickListener {
-//            navController.navigate(R.id.action_homeFragment_to_senadoresActualesFragment)
-//        }
-//
-//        buttonPartPoliticos.setOnClickListener {
+
+        buttonIrASenActuales.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_senadoresFragment)
+        }
+
+        buttonPartPoliticos.setOnClickListener {
 //            navController.navigate(R.id.action_homeFragment_to_partidosActualesFragment)
-//        }
-//
-//        buttonIrAConsejActuales.setOnClickListener {
+            Toast.makeText(context, "Partidos", Toast.LENGTH_SHORT).show()
+
+        }
+
+        buttonIrAConsejActuales.setOnClickListener {
 //            navController.navigate(R.id.action_homeFragment_to_consejalesActualesFragment)
-//        }
-//
-//        buttonIrAGallery.setOnClickListener {
+            Toast.makeText(context, "Consejales", Toast.LENGTH_SHORT).show()
+
+        }
+
+        buttonIrAGallery.setOnClickListener {
 //            navController.navigate(R.id.action_homeFragment_to_galleryFragment)
-//        }
+            Toast.makeText(context, "Gallery", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {

@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_homeFragment_to_diputadosFragment"
             app:destination="@id/diputadosFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_senadoresFragment"
+            app:destination="@id/senadoresFragment" />
     </fragment>
     <fragment
         android:id="@+id/diputadosFragment"
@@ -20,6 +23,15 @@
         tools:layout="@layout/fragment_diputados_actuales">
         <action
             android:id="@+id/action_diputadosFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/senadoresFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.ui.fragments.senadores.SenadoresActualesFragment"
+        android:label="SenadoresFragment"
+        tools:layout="@layout/fragment_senadores_actuales">
+        <action
+            android:id="@+id/action_senadoresFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
