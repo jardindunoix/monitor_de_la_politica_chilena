@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -26,14 +27,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        buttonIrADipActuales.setOnClickListener {
-            Toast.makeText(activity, "Diputados", Toast.LENGTH_SHORT).show()
-        }
-
-
 //        buttonIrADipActuales.setOnClickListener {
-//            navController.navigate(R.id.action_homeFragment_to_diputadosActualesFragment)
+//            Toast.makeText(activity, "Diputados", Toast.LENGTH_SHORT).show()
 //        }
+
+
+        buttonIrADipActuales.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_diputadosFragment)
+        }
 //
 //        buttonIrASenActuales.setOnClickListener {
 //            navController.navigate(R.id.action_homeFragment_to_senadoresActualesFragment)

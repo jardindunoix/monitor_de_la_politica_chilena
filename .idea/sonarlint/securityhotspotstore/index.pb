@@ -23,3 +23,7 @@ Yapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/SplashA
 Wapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/MainActivity.kt,5/7/573ac2f3230e093bf4fc2841b930fcc5eaaa0326
 ã
 [app/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/home/HomeFragment.kt,0/1/0176f3bcb61331ea80f926e38f542a67989196e4
+ú
+lapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/diputados/DiputadosActualesAdapter.kt,7/a/7a326aaf1f63769a90c984feb741445c722b0eb2
+ù
+mapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/diputados/DiputadosActualesFragment.kt,5/f/5f32f78f7b3be4e467678a438bf9333977d8d02a
