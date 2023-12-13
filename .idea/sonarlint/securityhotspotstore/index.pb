@@ -11,3 +11,5 @@ w
 Gapp/src/main/java/cl/antoinette/monitor_politico_econmico/MonitorApp.kt,4/4/44f8d8f3d024a8164c15f209355159c73541a239
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
+{
+Kapp/src/main/java/cl/antoinette/monitor_politico_econmico/SplashActivity.kt,a/1/a17b86cc6ca30d74d8e6ab757c0a9b9284c1f9bb
