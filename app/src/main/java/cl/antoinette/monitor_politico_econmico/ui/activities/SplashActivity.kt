@@ -23,10 +23,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         YoYo.with(Techniques.ZoomIn).duration(900).playOn(binding.iconBrandInclude.iconBrand)
         YoYo.with(Techniques.ZoomInDown).duration(900).playOn(binding.iconBrandInclude.textSplash)
-
         lifecycleScope.launch {
             delay(2000)
             intent = Intent(this@SplashActivity, MainActivity::class.java)
