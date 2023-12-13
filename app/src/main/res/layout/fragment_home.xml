@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blackboard1"
+    android:orientation="vertical"
+    tools:context=".ui.activities.Hilt_MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_button_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:id="@+id/linear_layout_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/button_ir_a_dip_actuales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal_8dp"
+                    android:fontFamily="@font/architect_daughter_regular"
+                    android:text="@string/button_ir_a_diputados_actuales"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_consejal_20sp" />
+
+                <TextView
+                    android:id="@+id/button_ir_a_sen_actuales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal_8dp"
+                    android:fontFamily="@font/architect_daughter_regular"
+                    android:text="@string/button_ir_a_senadores_actuales"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_consejal_20sp" />
+
+                <TextView
+                    android:id="@+id/button_part_politicos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal_8dp"
+                    android:fontFamily="@font/architect_daughter_regular"
+                    android:text="@string/button_ir_a_partidos_politicos"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_consejal_20sp" />
+
+                <TextView
+                    android:id="@+id/button_ir_a_consej_actuales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal_8dp"
+                    android:fontFamily="@font/architect_daughter_regular"
+                    android:text="@string/button_ir_a_consejales_actuales"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_consejal_20sp" />
+
+                <TextView
+                    android:id="@+id/button_ir_a_gallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal_8dp"
+                    android:fontFamily="@font/architect_daughter_regular"
+                    android:text="@string/button_ir_a_gallery"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_consejal_20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

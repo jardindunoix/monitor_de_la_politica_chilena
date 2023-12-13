@@ -21,3 +21,5 @@ Napp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/SplashActivity.kt
 Yapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/SplashActivity.kt,c/0/c01c85c247976b6e77cd44ebb7b5dce0d1af647f
 ‡
 Wapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/MainActivity.kt,5/7/573ac2f3230e093bf4fc2841b930fcc5eaaa0326
+‹
+[app/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/home/HomeFragment.kt,0/1/0176f3bcb61331ea80f926e38f542a67989196e4
