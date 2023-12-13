@@ -1,4 +1,4 @@
-package cl.antoinette.monitor_politico_econmico
+package cl.antoinette.monitor_politico_econmico.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

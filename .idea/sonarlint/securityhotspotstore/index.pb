@@ -13,3 +13,11 @@ A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 {
 Kapp/src/main/java/cl/antoinette/monitor_politico_econmico/SplashActivity.kt,a/1/a17b86cc6ca30d74d8e6ab757c0a9b9284c1f9bb
+|
+Lapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/MainActivity.kt,1/7/17daa00c7941d034d6649229d925a883d919bb25
+~
+Napp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/SplashActivity.kt,2/8/284e5764934e3758a5316af21c75fe56c00385ed
+‰
+Yapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/SplashActivity.kt,c/0/c01c85c247976b6e77cd44ebb7b5dce0d1af647f
+‡
+Wapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/MainActivity.kt,5/7/573ac2f3230e093bf4fc2841b930fcc5eaaa0326
