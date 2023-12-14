@@ -1,4 +1,4 @@
-package cl.antoinette.monitor_politico_econmico.ui.fragments.diputados
+package cl.antoinette.monitor_politico_econmico.ui.use_cases.senadores
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import cl.antoinette.monitor_politico_econmico.R
-import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActualesBinding
+import cl.antoinette.monitor_politico_econmico.databinding.FragmentSenadoresActualesBinding
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 
-class DiputadosActualesFragment : Fragment() {
+class SenadoresActualesFragment : Fragment() {
 
-    private var _binding: FragmentDiputadosActualesBinding? = null
+    private var _binding: FragmentSenadoresActualesBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController
 
@@ -24,7 +24,7 @@ class DiputadosActualesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDiputadosActualesBinding.inflate(layoutInflater)
+        _binding = FragmentSenadoresActualesBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -35,7 +35,7 @@ class DiputadosActualesFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         binding.backIcon.setOnClickListener {
-            navController.navigate(R.id.action_diputadosFragment_to_homeFragment)
+            navController.navigate(R.id.action_senadoresFragment_to_homeFragment)
         }
     }
 

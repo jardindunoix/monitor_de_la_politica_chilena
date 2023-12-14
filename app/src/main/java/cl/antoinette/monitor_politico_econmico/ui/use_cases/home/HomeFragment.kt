@@ -1,4 +1,4 @@
-package cl.antoinette.monitor_politico_econmico.ui.fragments.home
+package cl.antoinette.monitor_politico_econmico.ui.use_cases.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,10 +31,10 @@ class HomeFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         YoYo.with(Techniques.FadeInLeft).duration(180).playOn(buttonIrADipActuales)
-        YoYo.with(Techniques.FadeInLeft).duration(220).playOn(buttonIrASenActuales)
+        YoYo.with(Techniques.FadeInLeft).duration(230).playOn(buttonIrASenActuales)
         YoYo.with(Techniques.FadeInLeft).duration(280).playOn(buttonPartPoliticos)
-        YoYo.with(Techniques.FadeInLeft).duration(320).playOn(buttonIrAConsejActuales)
-        YoYo.with(Techniques.FadeInLeft).duration(360).playOn(buttonIrAGallery)
+        YoYo.with(Techniques.FadeInLeft).duration(330).playOn(buttonIrAConsejActuales)
+        YoYo.with(Techniques.FadeInLeft).duration(380).playOn(buttonIrAGallery)
 
         buttonIrADipActuales.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_diputadosFragment)
