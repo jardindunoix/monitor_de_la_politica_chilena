@@ -10,6 +10,8 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentHomeBinding
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 
 class HomeFragment : Fragment() {
 
@@ -27,6 +29,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+
+        YoYo.with(Techniques.FadeInLeft).duration(180).playOn(buttonIrADipActuales)
+        YoYo.with(Techniques.FadeInLeft).duration(220).playOn(buttonIrASenActuales)
+        YoYo.with(Techniques.FadeInLeft).duration(280).playOn(buttonPartPoliticos)
+        YoYo.with(Techniques.FadeInLeft).duration(320).playOn(buttonIrAConsejActuales)
+        YoYo.with(Techniques.FadeInLeft).duration(360).playOn(buttonIrAGallery)
+
         buttonIrADipActuales.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_diputadosFragment)
         }
@@ -36,19 +45,15 @@ class HomeFragment : Fragment() {
         }
 
         buttonPartPoliticos.setOnClickListener {
-//            navController.navigate(R.id.action_homeFragment_to_partidosActualesFragment)
             Toast.makeText(context, "Partidos", Toast.LENGTH_SHORT).show()
 
         }
 
         buttonIrAConsejActuales.setOnClickListener {
-//            navController.navigate(R.id.action_homeFragment_to_consejalesActualesFragment)
             Toast.makeText(context, "Consejales", Toast.LENGTH_SHORT).show()
-
         }
 
         buttonIrAGallery.setOnClickListener {
-//            navController.navigate(R.id.action_homeFragment_to_galleryFragment)
             Toast.makeText(context, "Gallery", Toast.LENGTH_SHORT).show()
         }
     }

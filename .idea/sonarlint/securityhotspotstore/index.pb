@@ -1,6 +1,4 @@
 
-y
-Iapp/src/main/java/cl/antoinette/monitor_politico_econmico/MainActivity.kt,e/e/eee30a1bd447729182d66d5d0fb38bd723671639
 D
 app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
 @
@@ -11,20 +9,12 @@ w
 Gapp/src/main/java/cl/antoinette/monitor_politico_econmico/MonitorApp.kt,4/4/44f8d8f3d024a8164c15f209355159c73541a239
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
-{
-Kapp/src/main/java/cl/antoinette/monitor_politico_econmico/SplashActivity.kt,a/1/a17b86cc6ca30d74d8e6ab757c0a9b9284c1f9bb
-|
-Lapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/MainActivity.kt,1/7/17daa00c7941d034d6649229d925a883d919bb25
-~
-Napp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/SplashActivity.kt,2/8/284e5764934e3758a5316af21c75fe56c00385ed
 â
 Yapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/SplashActivity.kt,c/0/c01c85c247976b6e77cd44ebb7b5dce0d1af647f
 á
 Wapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/activities/MainActivity.kt,5/7/573ac2f3230e093bf4fc2841b930fcc5eaaa0326
 ã
 [app/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/home/HomeFragment.kt,0/1/0176f3bcb61331ea80f926e38f542a67989196e4
-ú
-lapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/diputados/DiputadosActualesAdapter.kt,7/a/7a326aaf1f63769a90c984feb741445c722b0eb2
 ù
 mapp/src/main/java/cl/antoinette/monitor_politico_econmico/ui/fragments/diputados/DiputadosActualesFragment.kt,5/f/5f32f78f7b3be4e467678a438bf9333977d8d02a
 ù
