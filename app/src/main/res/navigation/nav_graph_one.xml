@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="cl.antoinette.monitor_politico_econmico.ui.use_cases.home.HomeFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.use_cases.features.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/diputadosFragment"
-        android:name="cl.antoinette.monitor_politico_econmico.ui.use_cases.diputados.DiputadosActualesFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui.DiputadosFragment"
         android:label="DiputadosFragment"
         tools:layout="@layout/fragment_diputados_actuales">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/senadoresFragment"
-        android:name="cl.antoinette.monitor_politico_econmico.ui.use_cases.senadores.SenadoresActualesFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.SenadoresActualesFragment"
         android:label="SenadoresFragment"
         tools:layout="@layout/fragment_senadores_actuales">
         <action

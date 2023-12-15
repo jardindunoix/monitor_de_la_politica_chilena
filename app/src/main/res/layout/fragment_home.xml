@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/blackboard1"
     android:orientation="vertical"
-    tools:context=".ui.activities.Hilt_MainActivity">
+    tools:context=".use_cases.activities.Hilt_MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

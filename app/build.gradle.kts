@@ -60,6 +60,11 @@ android {
             buildConfigField("String", "URL_BASE", "\"https://back.sellers-info.cl/api/charger/\"")
         }
     }
+
+    //    no se si sirve
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
@@ -70,7 +75,7 @@ dependencies {
     val roomVersion = "2.6.1"
     val coroutinesVersion = "1.7.3"
     val daggerHiltVersion = "2.48"
-    val animation = "2.4@aar"
+    val animationVersion = "2.4@aar"
     val materialVersion = "1.10.0"
     val jsoupVersion = "1.13.1"
     implementation("androidx.core:core-ktx:1.9.0")
@@ -80,7 +85,6 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
     /*splashscreen*/
     implementation("androidx.core:core-splashscreen:1.0.1")
     /*navigation NO CAMBIAR LA VERSION "2.6.0" **************/
@@ -110,9 +114,9 @@ dependencies {
     implementation("com.google.code.gson:gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
     //Room
-    implementation("androidx.room:room-ktx:$roomVersion")
-    implementation("androidx.room:room-runtime:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
+//    implementation("androidx.room:room-ktx:$roomVersion")
+//    implementation("androidx.room:room-runtime:$roomVersion")
+//    kapt("androidx.room:room-compiler:$roomVersion")
     //Hilt
     implementation("com.google.dagger:hilt-android:$daggerHiltVersion")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
@@ -127,8 +131,8 @@ dependencies {
     implementation("me.relex:circleindicator:2.1.6")
     implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:1.3.0")
     // animation
-    implementation("com.daimajia.easing:library:$animation")
-    implementation("com.daimajia.androidanimations:library:$animation")
+    implementation("com.daimajia.easing:library:$animationVersion")
+    implementation("com.daimajia.androidanimations:library:$animationVersion")
     /*material design*/
     implementation("com.google.android.material:material:$materialVersion")
     /* implementation("org.jsoup:jsoup:$jsoup_version")*/

@@ -1,7 +1,10 @@
 package cl.antoinette.monitor_politico_econmico.service
 
 class StaticUtils { companion object {
-	
+
+	/* LOG MESSAGE  */
+	const val TAG = "TAG-------->"
+
 	/*Constantes enteras*/
 	const val YOYO_DURATION = 3000L
 	
