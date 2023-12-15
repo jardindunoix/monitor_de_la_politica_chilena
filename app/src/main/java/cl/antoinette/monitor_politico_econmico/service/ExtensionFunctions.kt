@@ -2,6 +2,7 @@ package cl.antoinette.monitor_politico_econmico.service
 
 import android.content.Context
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 

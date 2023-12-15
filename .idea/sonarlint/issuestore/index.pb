@@ -107,3 +107,13 @@ qapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/di
 wapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/domain/objects/DiputadoObject.kt,4/8/48fb2c9c0c96db0f17825c8ceb4b9374fc106dca
 ¨
 |app/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/data/DiputadosWebScrapCallProvider.kt,b/9/b93f06e93f1212e2f491e9ec164b6be53fe0f24a
+•
+uapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/domain/model/DiputadoObject.kt,e/3/e3ee0dd13c4699ffce692fb16bfd72ee685fe513
+°
+qapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/domain/DiputadosUseCase.kt,f/0/f0aad0c2553796e5fb7d9c069c2a5a2b25d3ce15
+î
+dapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/Repository.kt,7/9/799f9addb259a6f0a0754ee78008d1df8dc04152
+ù
+mapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/DiputadosRepository.kt,5/2/52cf5e17233c5da98f3a874f1fc2a6528811f9fa
+§
+tapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/domain/DiputadosRepository.kt,b/3/b326319099ba9098bd3b0ad1d95eb553e1ee7ffd

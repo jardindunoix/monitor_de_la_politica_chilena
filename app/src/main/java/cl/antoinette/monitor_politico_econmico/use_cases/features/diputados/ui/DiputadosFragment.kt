@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import cl.antoinette.monitor_politico_econmico.R
@@ -17,6 +20,7 @@ import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.view
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DiputadosFragment : Fragment() {
@@ -24,7 +28,8 @@ class DiputadosFragment : Fragment() {
     private var _binding: FragmentDiputadosActualesBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController
-    private lateinit var model: DiputadosViewModel
+
+    private val model by viewModels<DiputadosViewModel>()
     private lateinit var adapter: DiputadosAdapter
 
     @SuppressLint("InflateParams")
@@ -38,12 +43,9 @@ class DiputadosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        model = ViewModelProvider(this).get(DiputadosViewModel::class.java)
-        adapter = DiputadosAdapter(mutableListOf(), requireContext())
-        initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), adapter)
-        model.diputadosActualesList?.observe(viewLifecycleOwner) {
-            adapter.setItemInTheView(it)
-        }
+
+        initList()
+        initUIState()
 
         YoYo.with(Techniques.DropOut).duration(500).playOn(binding.textView)
         YoYo.with(Techniques.DropOut).duration(500).playOn(binding.backIcon)
@@ -52,6 +54,22 @@ class DiputadosFragment : Fragment() {
         binding.backIcon.setOnClickListener {
             navController.navigate(R.id.action_diputadosFragment_to_homeFragment)
         }
+    }
+
+
+    private fun initUIState() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                model.diputadosActualesList.observe(viewLifecycleOwner) {
+                    adapter.setItemInTheView(it)
+                }
+            }
+        }
+    }
+
+    private fun initList() {
+        adapter = DiputadosAdapter(mutableListOf(), requireContext())
+        initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), adapter)
     }
 
     override fun onDestroyView() {

@@ -4,18 +4,23 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import cl.antoinette.monitor_politico_econmico.service.StaticUtils
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.DiputadosWebScrapCallProvider
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 import java.util.stream.Collectors
+import javax.inject.Inject
 
-class DiputadosManager {
+class DiputadosUseCase @Inject constructor() {
     var allDiputadosActuales = MutableLiveData<MutableList<DiputadoObject>>(mutableListOf())
 
     init {
+        getDiputadosDocument()
+    }
+
+    private fun getDiputadosDocument() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val diputadosActualesList = mutableListOf<DiputadoObject>()
@@ -52,7 +57,6 @@ class DiputadosManager {
             }
         }
     }
-
 }
 
 

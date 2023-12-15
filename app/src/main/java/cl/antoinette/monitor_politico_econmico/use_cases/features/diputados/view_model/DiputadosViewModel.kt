@@ -3,11 +3,9 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.vie
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.DiputadosManager
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.DiputadosUseCase
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoObject
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,10 +19,12 @@ class DiputadosViewModel @Inject constructor(application: Application) :
     }
 
     private fun getDiputadosActualesList() {
-        diputadosActualesList = DiputadosManager().allDiputadosActuales
-        viewModelScope.launch {
-            diputadosActualesList
-        }
+        diputadosActualesList = DiputadosUseCase().allDiputadosActuales
+
+//        viewModelScope.launch {
+//            diputadosActualesList
+//        }
+
     }
 
 }
