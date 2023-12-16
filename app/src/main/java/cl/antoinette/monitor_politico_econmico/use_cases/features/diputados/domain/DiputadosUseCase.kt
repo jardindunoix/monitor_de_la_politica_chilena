@@ -52,8 +52,10 @@ class DiputadosUseCase @Inject constructor() {
                     }
                 }
                 allDiputadosActuales.postValue(diputadosActualesList)
+//            diputadosActualesList
             } catch (e: Exception) {
                 Log.e("ERRORRRRR ---->", e.toString())
+//            listOf<DiputadoObject>()
             }
         }
     }

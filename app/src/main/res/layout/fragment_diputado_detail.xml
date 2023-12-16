@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blackboard1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_normal_4dp"
+    tools:context=".use_cases.activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/header_mark"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/arrow_r"
+            android:backgroundTint="@color/gray_3"
+            android:contentDescription="@string/content_description" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_view_"
+        android:layout_width="180dp"
+        android:layout_height="108dp"
+        android:fontFamily="@font/angeline_vintage_demo"
+        android:text="Detalle diputado"
+        android:textColor="@color/gray_3"
+        android:textSize="@dimen/text_size_28sp" />
+
+
+</LinearLayout>

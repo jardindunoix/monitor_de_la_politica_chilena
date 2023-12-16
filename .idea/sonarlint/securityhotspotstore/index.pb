@@ -117,3 +117,7 @@ dapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/di
 mapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/DiputadosRepository.kt,5/2/52cf5e17233c5da98f3a874f1fc2a6528811f9fa
 ¤
 tapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/domain/DiputadosRepository.kt,b/3/b326319099ba9098bd3b0ad1d95eb553e1ee7ffd
+«
+{app/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/ui/diputado_detail/DiputadoDetail.kt,1/a/1a7fdc4e7b2e413528255632778737a1f522f6cd
+´
+ƒapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/diputados/ui/diputado_detail/DiputadoDetailFragment.kt,6/0/60d3e6cfe45d72c3c1c7a814646bc4a887e2fa49

@@ -72,7 +72,7 @@ dependencies {
     val picassoVersion = "2.71828"
     val lifecycleVersion = "2.6.2"
     val retrofitVersion = "2.9.0"
-    val roomVersion = "2.6.1"
+//    val roomVersion = "2.6.1"
     val coroutinesVersion = "1.7.3"
     val daggerHiltVersion = "2.48"
     val animationVersion = "2.4@aar"

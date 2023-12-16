@@ -1,4 +1,4 @@
-package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain
+package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados
 
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoObject
 

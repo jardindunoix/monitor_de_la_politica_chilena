@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_diputadosFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_diputadosFragment_to_diputadoDetailFragment"
+            app:destination="@id/diputadoDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/senadoresFragment"
@@ -33,5 +36,14 @@
         <action
             android:id="@+id/action_senadoresFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diputadoDetailFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui.diputado_detail.DiputadoDetailFragment"
+        android:label="DiputadoDetailFragment"
+        tools:layout="@layout/fragment_diputado_detail">
+        <action
+            android:id="@+id/action_diputadoDetailFragment_to_diputadosFragment"
+            app:destination="@id/diputadosFragment" />
     </fragment>
 </navigation>

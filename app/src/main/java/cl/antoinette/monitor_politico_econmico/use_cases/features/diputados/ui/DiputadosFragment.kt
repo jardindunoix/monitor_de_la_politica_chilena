@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActualesBinding
 import cl.antoinette.monitor_politico_econmico.service.ExtensionFunctions.Companion.initRecyclerView
@@ -27,7 +28,7 @@ class DiputadosFragment : Fragment() {
 
     private var _binding: FragmentDiputadosActualesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var navController: NavController
+//    private lateinit var navController: NavController
 
     private val model by viewModels<DiputadosViewModel>()
     private lateinit var adapter: DiputadosAdapter
@@ -49,10 +50,10 @@ class DiputadosFragment : Fragment() {
 
         YoYo.with(Techniques.DropOut).duration(500).playOn(binding.textView)
         YoYo.with(Techniques.DropOut).duration(500).playOn(binding.backIcon)
-        navController = Navigation.findNavController(view)
+//        navController = Navigation.findNavController(view)
 
         binding.backIcon.setOnClickListener {
-            navController.navigate(R.id.action_diputadosFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_diputadosFragment_to_homeFragment)
         }
     }
 
@@ -68,7 +69,10 @@ class DiputadosFragment : Fragment() {
     }
 
     private fun initList() {
-        adapter = DiputadosAdapter(mutableListOf(), requireContext())
+        adapter = DiputadosAdapter(mutableListOf(),
+            onItemSelected = {
+                findNavController().navigate(R.id.action_diputadosFragment_to_diputadoDetailFragment)
+            })
         initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), adapter)
     }
 
