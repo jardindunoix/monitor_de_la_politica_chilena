@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadoDetailBinding
+import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.YOYO_DURATION
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 
 class DiputadoDetailFragment : Fragment() {
 
@@ -21,10 +24,18 @@ class DiputadoDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewEvents()
+    }
+
+    private fun viewEvents() {
+        YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.textView)
+        YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.backIcon)
         binding.backIcon.setOnClickListener {
             findNavController().navigate(R.id.action_diputadoDetailFragment_to_diputadosFragment)
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

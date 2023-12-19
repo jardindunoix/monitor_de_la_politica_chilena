@@ -10,12 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActualesBinding
 import cl.antoinette.monitor_politico_econmico.service.ExtensionFunctions.Companion.initRecyclerView
+import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.YOYO_DURATION
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui.adapter.DiputadosAdapter
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.view_model.DiputadosViewModel
 import com.daimajia.androidanimations.library.Techniques
@@ -28,9 +27,8 @@ class DiputadosFragment : Fragment() {
 
     private var _binding: FragmentDiputadosActualesBinding? = null
     private val binding get() = _binding!!
-//    private lateinit var navController: NavController
 
-    private val model by viewModels<DiputadosViewModel>()
+    private val diputadosViewModel by viewModels<DiputadosViewModel>()
     private lateinit var adapter: DiputadosAdapter
 
     @SuppressLint("InflateParams")
@@ -44,24 +42,24 @@ class DiputadosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initList()
         initUIState()
+        viewEvents()
+    }
 
-        YoYo.with(Techniques.DropOut).duration(500).playOn(binding.textView)
-        YoYo.with(Techniques.DropOut).duration(500).playOn(binding.backIcon)
-//        navController = Navigation.findNavController(view)
+    private fun viewEvents() {
+        YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.textView)
+        YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.backIcon)
 
         binding.backIcon.setOnClickListener {
             findNavController().navigate(R.id.action_diputadosFragment_to_homeFragment)
         }
     }
 
-
     private fun initUIState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                model.diputadosActualesList.observe(viewLifecycleOwner) {
+                diputadosViewModel.diputadosActualesList.observe(viewLifecycleOwner) {
                     adapter.setItemInTheView(it)
                 }
             }

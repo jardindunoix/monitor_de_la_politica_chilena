@@ -3,7 +3,7 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui.
 import android.view.View
 import android.view.animation.LinearInterpolator
 import cl.antoinette.monitor_politico_econmico.databinding.ItemDiputadosActualesBinding
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
 import com.squareup.picasso.Picasso
 
 class DiputadosItemViewHolder(private val binding: ItemDiputadosActualesBinding) :
@@ -13,18 +13,16 @@ class DiputadosItemViewHolder(private val binding: ItemDiputadosActualesBinding)
         Picasso.get().load(item.picture).into(imageViewDiputadoActual)
         textViewNombreDiputadoActual.text = item.nombre
 
-        textViewNombreDiputadoActual.setOnClickListener {
+        linearLayoutDiputadosActuales.setOnClickListener {
             startRotationAnimation(textViewNombreDiputadoActual, newLambda = { onItemSelected() })
         }
     }
 
     private fun startRotationAnimation(view: View, newLambda: () -> Unit) {
-//        YoYo.with(Techniques.FadeOut).duration(500).playOn(view)
-//        newLambda()
         view.animate().apply {
-            duration = 900
+            duration = 600
             interpolator = LinearInterpolator()
-            scaleX(2f)
+            scaleX(1.3f)
             withEndAction { newLambda() }
             start()
         }

@@ -2,9 +2,10 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.dom
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils
+import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.BASE_URL_DIP_ACT
+import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.DIPUTADOS_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.DiputadosWebScrapCallProvider
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,49 +15,63 @@ import java.util.stream.Collectors
 import javax.inject.Inject
 
 class DiputadosUseCase @Inject constructor() {
-    var allDiputadosActuales = MutableLiveData<MutableList<DiputadoObject>>(mutableListOf())
+    private var diputadosList = MutableLiveData<MutableList<DiputadoObject>?>(mutableListOf())
 
     init {
-        getDiputadosDocument()
+        CoroutineScope(Dispatchers.IO).launch {
+            getDiputadosDocument()
+        }
     }
 
-    private fun getDiputadosDocument() {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val diputadosActualesList = mutableListOf<DiputadoObject>()
-                val document: Document = DiputadosWebScrapCallProvider.getDiputadosActuales()
-                val articleElement: Elements = document.select("article.${StaticUtils.GRID_DIP_ACT}")
-                val h4Elements = articleElement.select(StaticUtils.H4_DIP_ACT).eachText()
-                val nameList = h4Elements.stream().collect(Collectors.toList())
-                val webpage = articleElement.select("a").eachAttr(StaticUtils.HREF_DIP_ACT).stream()
+    suspend fun getDiputadosDocument(): MutableList<DiputadoObject>? {
+        try {
+            val document: Document = DiputadosWebScrapCallProvider.getDiputadosActuales()
+            val articleElement: Elements = document
+                .select("article.grid-2")
+            val h4Elements = articleElement
+                .select("h4")
+                .eachText()
+            val nameList = h4Elements
+                .stream()
+                .collect(Collectors.toList())
+            val webpage = articleElement
+                .select("a")
+                .eachAttr("href")
+                .stream()
+                .collect(Collectors.toList())
+            val imagesList =
+                articleElement
+                    .select("img")
+                    .eachAttr("src")
+                    .stream()
                     .collect(Collectors.toList())
-                val imagesList =
-                    articleElement.select(StaticUtils.IMG_DIP_ACT).eachAttr(StaticUtils.SRC_DIP_ACT)
-                        .stream().collect(Collectors.toList())
-                var countAttr = 0
-                if (webpage.size / 3 == nameList.size) {
-                    val oldValueOne = "Sr. "
-                    val oldValueTwo = "Sra. "
-                    val newValue = ""
+            var countAttr = 0
 
-                    for ((i, f) in imagesList.withIndex()) {
-                        diputadosActualesList.add(
-                            DiputadoObject(
-                                nombre = nameList[i].replace(oldValueOne, newValue)
-                                    .replace(oldValueTwo, newValue),
-                                paginaWeb = "${StaticUtils.BASE_URL_DIP_ACT}${StaticUtils.DIPUTADOS_DIP_ACT}${webpage[countAttr]}",
-                                picture = "${StaticUtils.BASE_URL_DIP_ACT}${f}"
-                            )
+            if (webpage.size / 3 == nameList.size) {
+                val oldValueOne = "Sr. "
+                val oldValueTwo = "Sra. "
+                val newValue = ""
+
+                for ((i, f) in imagesList.withIndex()) {
+                    diputadosList.value?.add(
+                        DiputadoObject(
+                            nombre = nameList[i]
+                                .replace(oldValueOne, newValue)
+                                .replace(oldValueTwo, newValue),
+                            paginaWeb = "${BASE_URL_DIP_ACT}${DIPUTADOS_DIP_ACT}${webpage[countAttr]}",
+                            picture = "${BASE_URL_DIP_ACT}${f}"
                         )
-                        countAttr += 3
-                    }
+                    )
+                    countAttr += 3
                 }
-                allDiputadosActuales.postValue(diputadosActualesList)
-//            diputadosActualesList
-            } catch (e: Exception) {
-                Log.e("ERRORRRRR ---->", e.toString())
-//            listOf<DiputadoObject>()
             }
+
+//            Log.d(TAG, "==========>: ${diputadosActualesList.value}")
+
+            return diputadosList?.value
+        } catch (e: Exception) {
+            Log.e("ERRORRRRR ---->", e.toString())
+            return mutableListOf<DiputadoObject>()
         }
     }
 }

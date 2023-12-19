@@ -11,10 +11,16 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_diputadosFragment"
-            app:destination="@id/diputadosFragment" />
+            app:destination="@id/diputadosFragment"
+
+
+            />
         <action
             android:id="@+id/action_homeFragment_to_senadoresFragment"
-            app:destination="@id/senadoresFragment" />
+            app:destination="@id/senadoresFragment"
+
+
+            />
     </fragment>
     <fragment
         android:id="@+id/diputadosFragment"
@@ -23,19 +29,28 @@
         tools:layout="@layout/fragment_diputados_actuales">
         <action
             android:id="@+id/action_diputadosFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+
+
+            />
         <action
             android:id="@+id/action_diputadosFragment_to_diputadoDetailFragment"
-            app:destination="@id/diputadoDetailFragment" />
+            app:destination="@id/diputadoDetailFragment"
+
+
+            />
     </fragment>
     <fragment
         android:id="@+id/senadoresFragment"
-        android:name="cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.SenadoresActualesFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.ui.SenadoresFragment"
         android:label="SenadoresFragment"
         tools:layout="@layout/fragment_senadores_actuales">
         <action
             android:id="@+id/action_senadoresFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+
+
+            />
     </fragment>
     <fragment
         android:id="@+id/diputadoDetailFragment"
@@ -44,6 +59,8 @@
         tools:layout="@layout/fragment_diputado_detail">
         <action
             android:id="@+id/action_diputadoDetailFragment_to_diputadosFragment"
-            app:destination="@id/diputadosFragment" />
+            app:destination="@id/diputadosFragment"
+
+            />
     </fragment>
 </navigation>

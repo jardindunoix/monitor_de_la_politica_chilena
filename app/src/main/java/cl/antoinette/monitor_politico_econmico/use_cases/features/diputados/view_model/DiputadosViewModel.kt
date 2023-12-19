@@ -1,30 +1,31 @@
 package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.view_model
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.ViewModel
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.DiputadosUseCase
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DiputadosViewModel @Inject constructor(application: Application) :
-    AndroidViewModel(application) {
+class DiputadosViewModel
+@Inject constructor(
+    private val diputadosUseCase: DiputadosUseCase
+) : ViewModel() {
 
     var diputadosActualesList = MutableLiveData<MutableList<DiputadoObject>>(mutableListOf())
 
     init {
-        getDiputadosActualesList()
+        CoroutineScope(Dispatchers.IO).launch {
+            getDiputadosActualesList()
+        }
     }
 
-    private fun getDiputadosActualesList() {
-        diputadosActualesList = DiputadosUseCase().allDiputadosActuales
-//        viewModelScope.launch {
-//            diputadosActualesList
-//        }
+    private suspend fun getDiputadosActualesList() {
+        diputadosActualesList.postValue(diputadosUseCase.getDiputadosDocument())
     }
 
 }
