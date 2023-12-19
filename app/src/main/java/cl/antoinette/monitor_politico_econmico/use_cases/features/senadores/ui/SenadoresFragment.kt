@@ -11,12 +11,14 @@ import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentSenadoresActualesBinding
 import cl.antoinette.monitor_politico_econmico.service.ExtensionFunctions
 import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.YOYO_DURATION
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui.adapter.DiputadosAdapter
+import cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.ui.adapter.SenadoresAdapter
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 
 class SenadoresFragment : Fragment() {
 
+
+    private lateinit var adapter: SenadoresAdapter
     private var _binding: FragmentSenadoresActualesBinding? = null
     private val binding get() = _binding!!
 
@@ -42,7 +44,7 @@ class SenadoresFragment : Fragment() {
     }
 
     private fun initList() {
-        adapter = DiputadosAdapter(mutableListOf(),
+        adapter = SenadoresAdapter(mutableListOf(),
             onItemSelected = {
                 findNavController().navigate(R.id.action_diputadosFragment_to_diputadoDetailFragment)
             })
