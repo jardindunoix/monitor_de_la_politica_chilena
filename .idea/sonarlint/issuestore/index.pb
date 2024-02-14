@@ -48,8 +48,8 @@ napp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/se
 ¥
 uapp/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/senadores/ui/adapter/SenadoresAdapter.kt,1/d/1d01640efceccee8b85c408448d7e8b6c5e0dc6a
 ¬
-|app/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/senadores/ui/adapter/DiputadosBaseViewHolder.kt,b/8/b8d60ee06d910133ecd37090a0bb0e9053d2e043
-¬
 |app/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/senadores/ui/adapter/SenadoresBaseViewHolder.kt,c/8/c8634076c6f370fc7c6ff1c23d602abced787218
 ¬
 |app/src/main/java/cl/antoinette/monitor_politico_econmico/use_cases/features/senadores/ui/adapter/SenadoresItemViewHolder.kt,e/1/e1a80e20e9e19259b2b3c7ff7acac1d36fbdd1fc
+H
+.github/workflows/ci.yml,8/9/899ce9c202bf7bb5480e72836c3edc773c9c4244

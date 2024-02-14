@@ -1,8 +1,10 @@
 package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui
 
 import android.annotation.SuppressLint
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment

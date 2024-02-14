@@ -7,15 +7,13 @@ import cl.antoinette.monitor_politico_econmico.databinding.ItemDiputadosActuales
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
 
 class DiputadosAdapter(
-    private var list: MutableList<DiputadoObject> = mutableListOf(),
+    private var list: List<DiputadoObject> = mutableListOf(),
     private val onItemSelected: () -> Unit
 ) :
     RecyclerView.Adapter<DiputadosBaseViewHolder<*>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiputadosBaseViewHolder<*> {
-        val binding =
-            ItemDiputadosActualesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
+        val binding = ItemDiputadosActualesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return DiputadosItemViewHolder(binding)
     }
 
@@ -27,7 +25,7 @@ class DiputadosAdapter(
 
     override fun getItemCount() = list.size
 
-    fun setItemInTheView(diputadosActuales: MutableList<DiputadoObject>?) {
+    fun setItemInTheView(diputadosActuales: List<DiputadoObject>?) {
         if (diputadosActuales != null) {
             this.list = diputadosActuales
             notifyDataSetChanged()
