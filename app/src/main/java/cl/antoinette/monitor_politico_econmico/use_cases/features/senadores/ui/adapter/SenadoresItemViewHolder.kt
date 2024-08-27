@@ -2,9 +2,7 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.ui.
 
 import android.view.View
 import android.view.animation.LinearInterpolator
-import cl.antoinette.monitor_politico_econmico.databinding.ItemDiputadosActualesBinding
 import cl.antoinette.monitor_politico_econmico.databinding.ItemSenadoresActualesBinding
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
 import cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.domain.objects.SenadorObject
 import com.squareup.picasso.Picasso
 

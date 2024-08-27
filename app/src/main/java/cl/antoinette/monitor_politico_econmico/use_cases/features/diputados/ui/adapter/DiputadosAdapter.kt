@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cl.antoinette.monitor_politico_econmico.databinding.ItemDiputadosActualesBinding
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoModel
 
 class DiputadosAdapter(
-    private var list: List<DiputadoObject> = mutableListOf(),
+    private var list: List<DiputadoModel> = mutableListOf(),
     private val onItemSelected: () -> Unit
 ) :
     RecyclerView.Adapter<DiputadosBaseViewHolder<*>>() {
@@ -25,7 +25,7 @@ class DiputadosAdapter(
 
     override fun getItemCount() = list.size
 
-    fun setItemInTheView(diputadosActuales: List<DiputadoObject>?) {
+    fun setItemInTheView(diputadosActuales: List<DiputadoModel>?) {
         if (diputadosActuales != null) {
             this.list = diputadosActuales
             notifyDataSetChanged()

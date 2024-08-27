@@ -1,10 +1,8 @@
 package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui
 
 import android.annotation.SuppressLint
-import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -15,8 +13,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActualesBinding
-import cl.antoinette.monitor_politico_econmico.service.ExtensionFunctions.Companion.initRecyclerView
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.YOYO_DURATION
+import cl.antoinette.monitor_politico_econmico.utilities.ExtensionFunctions.Companion.initRecyclerView
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.YOYO_DURATION
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.ui.adapter.DiputadosAdapter
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.view_model.DiputadosViewModel
 import com.daimajia.androidanimations.library.Techniques
@@ -26,6 +24,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DiputadosFragment : Fragment() {
+
 
     private var _binding: FragmentDiputadosActualesBinding? = null
     private val binding get() = _binding!!

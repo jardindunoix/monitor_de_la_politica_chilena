@@ -2,7 +2,6 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.vie
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
 import cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.domain.SenadoresUseCase
 import cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.domain.objects.SenadorObject
 import dagger.hilt.android.lifecycle.HiltViewModel

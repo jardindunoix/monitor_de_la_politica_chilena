@@ -1,11 +1,14 @@
-package cl.antoinette.monitor_politico_econmico.service
+package cl.antoinette.monitor_politico_econmico.utilities
 
 class StaticUtils {
     companion object {
 
         /* LOG MESSAGE  */
         const val TAG = "TAG-------->"
-
+/*database consts*/
+        const val DATABASE_VERSION = 1
+        const val DATABASE_NAME = "monitor_db"
+        const val DATABASE_DIPUTADOS = "monitor_db"
         /*Constantes enteras*/
         const val YOYO_DURATION = 500L
 

@@ -2,8 +2,8 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.dom
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.BASE_URL_SEN_ACT
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_SEN_ACT
 import cl.antoinette.monitor_politico_econmico.use_cases.features.senadores.domain.objects.SenadorObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

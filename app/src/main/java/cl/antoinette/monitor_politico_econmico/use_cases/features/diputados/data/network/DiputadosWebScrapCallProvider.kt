@@ -1,8 +1,7 @@
-package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data
+package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network
 
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.BASE_URL_DIP_ACT
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.END_POINT_DIP_ACT
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.END_POINT_DIP_ACT
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import javax.inject.Inject

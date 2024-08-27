@@ -2,10 +2,10 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.dom
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.BASE_URL_DIP_ACT
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.DIPUTADOS_DIP_ACT
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.DiputadosWebScrapCallProvider
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.objects.DiputadoObject
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DIPUTADOS_DIP_ACT
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.DiputadosWebScrapCallProvider
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ import java.util.stream.Collectors
 import javax.inject.Inject
 
 class DiputadosUseCase @Inject constructor() {
-    private var diputadosList = MutableLiveData<MutableList<DiputadoObject>?>(mutableListOf())
+    private var diputadosList = MutableLiveData<MutableList<DiputadoModel>?>(mutableListOf())
 
     init {
         CoroutineScope(Dispatchers.IO).launch {
@@ -23,7 +23,7 @@ class DiputadosUseCase @Inject constructor() {
         }
     }
 
-    suspend fun getDiputadosDocument(): MutableList<DiputadoObject>? {
+    suspend fun getDiputadosDocument(): MutableList<DiputadoModel>? {
         try {
             val document: Document = DiputadosWebScrapCallProvider.getDiputadosActuales()
             val articleElement: Elements = document
@@ -54,7 +54,7 @@ class DiputadosUseCase @Inject constructor() {
 
                 for ((i, f) in imagesList.withIndex()) {
                     diputadosList.value?.add(
-                        DiputadoObject(
+                        DiputadoModel(
                             nombre = nameList[i]
                                 .replace(oldValueOne, newValue)
                                 .replace(oldValueTwo, newValue),
@@ -71,7 +71,7 @@ class DiputadosUseCase @Inject constructor() {
             return diputadosList?.value
         } catch (e: Exception) {
             Log.e("ERRORRRRR ---->", e.toString())
-            return mutableListOf<DiputadoObject>()
+            return mutableListOf<DiputadoModel>()
         }
     }
 }

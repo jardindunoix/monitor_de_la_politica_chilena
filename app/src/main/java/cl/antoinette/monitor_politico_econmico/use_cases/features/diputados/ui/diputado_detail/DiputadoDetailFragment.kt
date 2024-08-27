@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadoDetailBinding
-import cl.antoinette.monitor_politico_econmico.service.StaticUtils.Companion.YOYO_DURATION
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.YOYO_DURATION
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 
