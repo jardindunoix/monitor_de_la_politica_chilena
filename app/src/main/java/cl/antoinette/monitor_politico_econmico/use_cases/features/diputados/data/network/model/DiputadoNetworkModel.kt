@@ -2,7 +2,7 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.dat
 
 import com.google.gson.annotations.SerializedName
 
-data class DiputadoModel(
+data class DiputadoNetworkModel(
    @SerializedName("id")
    var id: Int = 0,
    @SerializedName("id_diputado_actual")

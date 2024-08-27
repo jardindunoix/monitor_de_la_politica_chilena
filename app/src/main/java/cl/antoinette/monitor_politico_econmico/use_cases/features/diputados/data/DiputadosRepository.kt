@@ -15,4 +15,8 @@ class DiputadosRepository @Inject constructor(
       return response.map { it.toDomain() }
    }
 
+
+   suspend fun insertDiputadosInDatabase(diputados: List<DiputadoEntity>) {
+      dao.insertDiputadosAll(diputados)
+   }
 }

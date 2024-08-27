@@ -1,10 +1,9 @@
 package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.DiputadosRepository
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.DiputadosWebScrapCallProvider
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.model.DiputadoModel
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.model.DiputadoNetworkModel
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.pojos.Diputado
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DIPUTADOS_DIP_ACT
@@ -19,7 +18,7 @@ import javax.inject.Inject
 class DiputadosUseCase @Inject constructor(
    private val repository: DiputadosRepository
 ) {
-   private var diputadosList = MutableLiveData<MutableList<DiputadoModel>?>(mutableListOf())
+   private var diputadosList = MutableLiveData<MutableList<DiputadoNetworkModel>?>(mutableListOf())
 
    init {
       CoroutineScope(Dispatchers.IO).launch {
@@ -27,7 +26,7 @@ class DiputadosUseCase @Inject constructor(
       }
    }
 
-   suspend fun getDiputadosDocument(): MutableList<DiputadoModel>? {
+   suspend fun getDiputadosDocument(): MutableList<DiputadoNetworkModel>? {
       try {
          val document: Document = DiputadosWebScrapCallProvider.getDiputadosActuales()
          val articleElement: Elements = document.select("article.grid-2")
@@ -56,7 +55,7 @@ class DiputadosUseCase @Inject constructor(
 
             for ((i, f) in imagesList.withIndex()) {
                diputadosList.value?.add(
-                  DiputadoModel(
+                  DiputadoNetworkModel(
                      nombre = nameList[i]
                         .replace(oldValueOne, newValue)
                         .replace(oldValueTwo, newValue), paginaWeb = "${BASE_URL_DIP_ACT}${DIPUTADOS_DIP_ACT}${webpage[countAttr]}", picture = "${BASE_URL_DIP_ACT}${f}"
@@ -68,8 +67,7 @@ class DiputadosUseCase @Inject constructor(
 
          return diputadosList.value
       } catch (e: Exception) {
-         Log.e("ERRORRRRR ---->", e.toString())
-         return mutableListOf<DiputadoModel>()
+         return mutableListOf<DiputadoNetworkModel>()
       }
    }
 
@@ -82,6 +80,7 @@ class DiputadosUseCase @Inject constructor(
 //      }
       return repository.getAllDiputadosFromDatabase()
    }
+
 
 }
 

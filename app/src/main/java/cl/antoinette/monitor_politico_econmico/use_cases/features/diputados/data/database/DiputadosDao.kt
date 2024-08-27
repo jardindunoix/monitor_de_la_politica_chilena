@@ -1,6 +1,5 @@
 package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -26,7 +25,7 @@ interface DiputadosDao {
    suspend fun deleteDiputado(diputado: DiputadoEntity)
 
    @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertDiputados(diputados: List<DiputadoEntity>)
+   suspend fun insertDiputadosAll(diputados: List<DiputadoEntity>)
 
    @Insert
    suspend fun insertDiputado(diputado: DiputadoEntity)
