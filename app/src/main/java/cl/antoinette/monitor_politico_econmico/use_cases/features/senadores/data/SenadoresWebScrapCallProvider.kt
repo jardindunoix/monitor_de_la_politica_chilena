@@ -6,12 +6,12 @@ import org.jsoup.nodes.Document
 import javax.inject.Inject
 
 class SenadoresWebScrapCallProvider @Inject constructor() {
-    companion object {
-        /*LEGISLATIVO*/
-        fun getDiputadosActuales(): Document {
-            val url = PPAL_URL_SEN_ACT
-            return Jsoup.connect(url).get()
-        }
+        companion object {
+            /*LEGISLATIVO*/
+            fun getDiputadosActuales(): Document {
+                val url = PPAL_URL_SEN_ACT
+                return Jsoup.connect(url).get()
+            }
 
     }
 }

@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cl.antoinette.monitor_politico_econmico.databinding.ItemDiputadosActualesBinding
-import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.model.DiputadoModel
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.model.DiputadoModel
 
 class DiputadosAdapter(
-    private var list: List<DiputadoModel> = mutableListOf(),
-    private val onItemSelected: () -> Unit
+   private var list: List<DiputadoModel> = mutableListOf(),
+   private val onItemSelected: () -> Unit
 ) :
     RecyclerView.Adapter<DiputadosBaseViewHolder<*>>() {
 

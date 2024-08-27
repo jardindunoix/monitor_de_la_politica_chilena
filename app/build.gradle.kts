@@ -128,9 +128,9 @@ dependencies {
    //* implementation("org.jsoup:jsoup:$jsoup_version")*//*
    implementation("org.jsoup:jsoup:$jsoupVersion")
    //Room
-   implementation("androidx.room:room-ktx:$roomVersion")
+   implementation("androidx.room:room-ktx:2.6.1")
    // kapt genera el codigo para la base de datos
-   kapt("androidx.room:room-compiler:$roomVersion")
+   kapt("androidx.room:room-compiler:2.6.1")
    /* <><><><> */
    implementation(libs.androidx.core.ktx)
    implementation(libs.androidx.lifecycle.runtime.ktx)
