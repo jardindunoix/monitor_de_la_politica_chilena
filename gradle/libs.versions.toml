@@ -16,7 +16,7 @@ okHttpVersionBom = "5.0.0-alpha.2"
 gsonVersion = "2.9.1"
 #
 daggerPluginVersion = "2.45"
-daggerHiltVersion = "2.48"
+daggerHiltVersion = "2.49"
 daggerHiltnavigationComposeVersion = "1.1.0"
 daggerHiltGoogleComposeVersion = "1.1.0"
 hiltCompiler = "1.2.0"
