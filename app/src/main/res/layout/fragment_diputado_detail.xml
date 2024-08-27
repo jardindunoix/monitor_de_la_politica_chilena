@@ -28,14 +28,13 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/text_view_"
-        android:layout_width="180dp"
-        android:layout_height="108dp"
-        android:fontFamily="@font/angeline_vintage_demo"
-        android:text="Detalle diputado"
-        android:textColor="@color/gray_3"
-        android:textSize="@dimen/text_size_28sp" />
-
+<!--    <TextView-->
+<!--        android:id="@+id/text_view_"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="108dp"-->
+<!--        android:fontFamily="@font/angeline_vintage_demo"-->
+<!--        android:text="Detalle diputado"-->
+<!--        android:textColor="@color/gray_3"-->
+<!--        android:textSize="@dimen/text_size_28sp" />-->
 
 </LinearLayout>

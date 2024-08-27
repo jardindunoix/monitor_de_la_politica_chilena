@@ -14,7 +14,7 @@ class StaticUtils {
       /*Constantes enteras*/
       const val YOYO_DURATION = 500L
 
-      /*constantes diputados actuales*/ //	https://www.camara.cl/diputados/diputados.aspx#mostrarDiputados
+      /*constantes diputados actuales*/
       const val BASE_URL_DIP_ACT = "https://www.camara.cl/"
       const val END_POINT_DIP_ACT = "diputados/diputados.aspx#mostrarDiputados"
       const val DIPUTADOS_DIP_ACT = "diputados/"

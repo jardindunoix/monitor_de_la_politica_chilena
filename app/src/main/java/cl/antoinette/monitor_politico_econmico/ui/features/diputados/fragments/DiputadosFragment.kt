@@ -13,10 +13,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActualesBinding
-import cl.antoinette.monitor_politico_econmico.utilities.ExtensionFunctions.Companion.initRecyclerView
-import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.YOYO_DURATION
 import cl.antoinette.monitor_politico_econmico.ui.features.diputados.adapter.DiputadosAdapter
 import cl.antoinette.monitor_politico_econmico.ui.features.diputados.view_model.DiputadosViewModel
+import cl.antoinette.monitor_politico_econmico.utilities.ExtensionFunctions.Companion.initRecyclerView
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.YOYO_DURATION
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +49,7 @@ class DiputadosFragment : Fragment() {
     }
 
     private fun viewEvents() {
-        YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.textView)
+//        YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.textView)
         YoYo.with(Techniques.DropOut).duration(YOYO_DURATION).playOn(binding.backIcon)
 
         binding.backIcon.setOnClickListener {
