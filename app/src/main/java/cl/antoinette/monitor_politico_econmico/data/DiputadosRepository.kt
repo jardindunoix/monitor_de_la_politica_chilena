@@ -4,6 +4,7 @@ import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEn
 import cl.antoinette.monitor_politico_econmico.data.database.room.DiputadosDao
 import cl.antoinette.monitor_politico_econmico.data.network.DiputadosWebScrapCallProvider
 import cl.antoinette.monitor_politico_econmico.domain.mappers.toDomain
+import cl.antoinette.monitor_politico_econmico.domain.mappers.toEntity
 import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
 import javax.inject.Inject
 
@@ -17,14 +18,15 @@ class DiputadosRepository @Inject constructor(
       return response.map { it.toDomain() }
    }
 
-
-   suspend fun insertDiputadosInDatabase(diputados: List<DiputadoEntity>) {
-      dao.insertDiputadosAll(diputados)
+   suspend fun getDiputadosFromWebScrap(): List<Diputado> {
+      val response = diputadosWebscrapProvider.getDiputadosActuales()
+      dao.insertDiputadosAll(response.map { it!!.toEntity() })
+      return response.map { it!!.toDomain() }
    }
 
-   suspend fun getDiputados(): List<Diputado> {
+   suspend fun getDiputadosFromDatabase(): List<Diputado> {
       return diputadosWebscrapProvider
          .getDiputadosActuales()
-         .map { it!!.toDomain()  }
+         .map { it!!.toDomain() }
    }
 }

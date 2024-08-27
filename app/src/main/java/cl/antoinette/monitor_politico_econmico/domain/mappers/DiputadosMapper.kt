@@ -25,3 +25,13 @@ fun DiputadoNetworkModel.toDomain() =  Diputado(
    mail = mail,
    picture = picture,
 )
+fun DiputadoNetworkModel.toEntity() =  DiputadoEntity(
+   nombre = nombre,
+   apellido = apellido,
+   distrito = distrito,
+   partido = partido,
+   paginaWeb = paginaWeb,
+   mail = mail,
+   picture = picture,
+)
+

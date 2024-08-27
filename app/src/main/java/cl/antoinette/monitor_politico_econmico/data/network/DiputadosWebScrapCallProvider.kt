@@ -22,10 +22,6 @@ class DiputadosWebScrapCallProvider @Inject constructor() {
       val jsoup = Jsoup
          .connect(url)
          .get()
-      Log.d(
-         TAG,
-         "getDiputadosActuales: $jsoup"
-      )
       return jsoup
    }
 

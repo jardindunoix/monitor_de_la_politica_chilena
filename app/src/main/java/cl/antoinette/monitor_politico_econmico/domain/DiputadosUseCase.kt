@@ -1,21 +1,31 @@
 package cl.antoinette.monitor_politico_econmico.domain
 
+import android.util.Log
 import cl.antoinette.monitor_politico_econmico.data.DiputadosRepository
 import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import javax.inject.Inject
 
 class DiputadosUseCase @Inject constructor(
    private val repository: DiputadosRepository
 ) {
 
-   suspend operator fun invoke(): List<Diputado> { //      return repository.getAllDiputadosFromDatabase()
-      return repository.getDiputados()
+   suspend operator fun invoke(): List<Diputado> {
+      val response = repository.getAllDiputadosFromDatabase()
+      return if (response.isEmpty()) {
+         Log.d(
+            TAG,
+            "invoke: GET IT FROM WEBSCRAP"
+         )
+         repository.getDiputadosFromWebScrap()
+      } else {
+         Log.d(
+            TAG,
+            "invoke: GET IT FROM DATABASE"
+         )
+         repository.getDiputadosFromDatabase()
+      }
    }
-
-
 }
 
 
