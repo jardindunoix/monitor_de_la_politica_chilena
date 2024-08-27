@@ -18,7 +18,7 @@ class DiputadosViewModel
 
 ) : ViewModel() {
 
-    var diputadosActualesList = MutableLiveData<MutableList<Diputado>>(mutableListOf())
+    var diputadosActualesList = MutableLiveData<List<Diputado>>(mutableListOf())
 
     init {
         CoroutineScope(Dispatchers.IO).launch {

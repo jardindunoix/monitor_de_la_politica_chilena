@@ -22,11 +22,9 @@ class DiputadosRepository @Inject constructor(
       dao.insertDiputadosAll(diputados)
    }
 
-   suspend fun getDiputados(): MutableList<Diputado> {
+   suspend fun getDiputados(): List<Diputado> {
       return diputadosWebscrapProvider
          .getDiputadosActuales()
-         ?.map { it.toDomain() }
-         ?.toMutableList() ?: mutableListOf()
-
+         .map { it!!.toDomain()  }
    }
 }

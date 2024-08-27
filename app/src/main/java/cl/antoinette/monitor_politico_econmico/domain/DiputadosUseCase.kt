@@ -10,15 +10,8 @@ import javax.inject.Inject
 class DiputadosUseCase @Inject constructor(
    private val repository: DiputadosRepository
 ) {
-//
-//   init {
-//      CoroutineScope(Dispatchers.IO).launch {
-//         repository.getDiputados()
-//      }
-//   }
 
-
-   suspend operator fun invoke(): MutableList<Diputado> { //      return repository.getAllDiputadosFromDatabase()
+   suspend operator fun invoke(): List<Diputado> { //      return repository.getAllDiputadosFromDatabase()
       return repository.getDiputados()
    }
 

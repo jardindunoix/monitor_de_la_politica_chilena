@@ -1,7 +1,6 @@
 package cl.antoinette.monitor_politico_econmico.data.network
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoNetworkModel
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DIPUTADOS_DIP_ACT
@@ -15,7 +14,7 @@ import javax.inject.Inject
 
 class DiputadosWebScrapCallProvider @Inject constructor() {
 
-   private var diputadosList = MutableLiveData<MutableList<DiputadoNetworkModel>?>(mutableListOf())
+   private var diputadosList = mutableListOf<DiputadoNetworkModel>()
 
    /*LEGISLATIVO*/
    private fun getDiputadosDocument(): Document {
@@ -23,12 +22,15 @@ class DiputadosWebScrapCallProvider @Inject constructor() {
       val jsoup = Jsoup
          .connect(url)
          .get()
-      Log.d(TAG, "getDiputadosActuales: $jsoup")
+      Log.d(
+         TAG,
+         "getDiputadosActuales: $jsoup"
+      )
       return jsoup
    }
 
 
-   suspend fun getDiputadosActuales(): MutableList<DiputadoNetworkModel>? {
+   suspend fun getDiputadosActuales(): List<DiputadoNetworkModel?> {
       try {
          val document: Document = getDiputadosDocument()
          val articleElement: Elements = document.select("article.grid-2")
@@ -56,19 +58,27 @@ class DiputadosWebScrapCallProvider @Inject constructor() {
             val newValue = ""
 
             for ((i, f) in imagesList.withIndex()) {
-               diputadosList.value?.add(
+               diputadosList.add(
                   DiputadoNetworkModel(
                      nombre = nameList[i]
-                        .replace(oldValueOne, newValue)
-                        .replace(oldValueTwo, newValue), paginaWeb = "${BASE_URL_DIP_ACT}$DIPUTADOS_DIP_ACT${webpage[countAttr]}", picture = "${BASE_URL_DIP_ACT}${f}"
+                        .replace(
+                           oldValueOne,
+                           newValue
+                        )
+                        .replace(
+                           oldValueTwo,
+                           newValue
+                        ),
+                     paginaWeb = "${BASE_URL_DIP_ACT}$DIPUTADOS_DIP_ACT${webpage[countAttr]}",
+                     picture = "${BASE_URL_DIP_ACT}${f}"
                   )
                )
                countAttr += 3
             }
          }
-         return diputadosList.value
+         return diputadosList.toList()
       } catch (e: Exception) {
-         return mutableListOf<DiputadoNetworkModel>()
+         return listOf<DiputadoNetworkModel>()
       }
    }
 
