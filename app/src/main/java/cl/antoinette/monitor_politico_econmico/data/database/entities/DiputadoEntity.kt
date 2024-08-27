@@ -9,21 +9,19 @@ import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.T
 data class DiputadoEntity(
    @PrimaryKey(autoGenerate = true)
    @ColumnInfo("id")
-   var id: Int = 0,
-   @ColumnInfo("id_diputado_actual")
-   var idDiputadoActual: Int = 0,
+   val id: Int = 0,
    @ColumnInfo("nombre")
-   var nombre: String = "NOMBRE del CHORRO",
+   val nombre: String,
    @ColumnInfo("apellido")
-   var apellido: String = "",
+   val apellido: String,
    @ColumnInfo("distrito")
-   var distrito: String = "",
+   val distrito: String,
    @ColumnInfo("partido")
-   var partido: String = "",
+   val partido: String,
    @ColumnInfo("pagina_web")
-   var paginaWeb: String = "WEB PAGE",
+   val paginaWeb: String,
    @ColumnInfo("mail")
-   var mail: String = "",
+   val mail: String,
    @ColumnInfo("picture")
-   var picture: String = ""
+   val picture: String
 )

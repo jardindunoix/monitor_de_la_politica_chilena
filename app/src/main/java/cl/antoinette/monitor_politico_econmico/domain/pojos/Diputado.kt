@@ -1,12 +1,12 @@
 package cl.antoinette.monitor_politico_econmico.domain.pojos
 
 data class Diputado(
-   var idDiputadoActual: Int = 0,
-   var nombre: String = "NOMBRE del CHORRO",
+   val idDiputadoActual: Int = 0,
+   val nombre: String = "NOMBRE del CHORRO",
    var apellido: String = "",
    var distrito: String = "",
-   var partido: String = "",
-   var paginaWeb: String = "WEB PAGE",
-   var mail: String = "",
-   var picture: String = ""
+   val partido: String = "",
+   val paginaWeb: String = "WEB PAGE",
+   val mail: String = "",
+   val picture: String = ""
 )

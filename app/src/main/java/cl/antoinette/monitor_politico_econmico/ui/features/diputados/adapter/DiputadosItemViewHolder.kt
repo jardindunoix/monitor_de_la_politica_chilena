@@ -4,12 +4,13 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import cl.antoinette.monitor_politico_econmico.databinding.ItemDiputadosActualesBinding
 import cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoNetworkModel
+import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
 import com.squareup.picasso.Picasso
 
 class DiputadosItemViewHolder(private val binding: ItemDiputadosActualesBinding) :
     DiputadosBaseViewHolder<DiputadoNetworkModel>(binding.root) {
 
-    override fun bind(item: DiputadoNetworkModel, onItemSelected: () -> Unit) = with(binding) {
+    override fun bind(item: Diputado, onItemSelected: () -> Unit) = with(binding) {
         Picasso.get().load(item.picture).into(imageViewDiputadoActual)
         textViewNombreDiputadoActual.text = item.nombre
 

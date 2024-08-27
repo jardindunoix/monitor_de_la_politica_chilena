@@ -3,22 +3,18 @@ package cl.antoinette.monitor_politico_econmico.data.network.model
 import com.google.gson.annotations.SerializedName
 
 data class DiputadoNetworkModel(
-   @SerializedName("id")
-   var id: Int = 0,
-   @SerializedName("id_diputado_actual")
-   var idDiputadoActual: Int = 0,
    @SerializedName("nombre")
    var nombre: String = "NOMBRE del CHORRO",
    @SerializedName("apellido")
-   var apellido: String = "",
+   var apellido: String = "DEFAULT LAST NAME",
    @SerializedName("distrito")
-   var distrito: String = "",
+   var distrito: String = "DISTRICT",
    @SerializedName("partido")
-   var partido: String = "",
+   var partido: String = "PARTIDO",
    @SerializedName("pagina_web")
    var paginaWeb: String = "WEB PAGE",
    @SerializedName("mail")
-   var mail: String = "",
+   var mail: String = "default@email.com",
    @SerializedName("picture")
-   var picture: String = ""
+   var picture: String = "chorro's picture"
 )

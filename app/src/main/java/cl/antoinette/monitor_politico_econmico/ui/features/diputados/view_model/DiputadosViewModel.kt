@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import cl.antoinette.monitor_politico_econmico.domain.DiputadosUseCase
 import cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoNetworkModel
+import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -13,10 +14,11 @@ import javax.inject.Inject
 @HiltViewModel
 class DiputadosViewModel
 @Inject constructor(
-    private val diputadosUseCase: DiputadosUseCase
+    private val diputadosUseCase: DiputadosUseCase,
+
 ) : ViewModel() {
 
-    var diputadosActualesList = MutableLiveData<MutableList<DiputadoNetworkModel>>(mutableListOf())
+    var diputadosActualesList = MutableLiveData<MutableList<Diputado>>(mutableListOf())
 
     init {
         CoroutineScope(Dispatchers.IO).launch {
@@ -25,7 +27,7 @@ class DiputadosViewModel
     }
 
     private suspend fun getDiputadosActualesList() {
-        diputadosActualesList.postValue(diputadosUseCase.getDiputadosDocument())
+        diputadosActualesList.postValue(diputadosUseCase.invoke())
     }
 
 }

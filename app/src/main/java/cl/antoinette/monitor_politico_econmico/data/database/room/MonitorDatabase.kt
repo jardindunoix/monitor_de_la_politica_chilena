@@ -6,13 +6,8 @@ import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEn
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DATABASE_VERSION
 
 @Database(
-   version = DATABASE_VERSION,
-   entities = [
-      DiputadoEntity::class
-   ]
+   version = DATABASE_VERSION, entities = [DiputadoEntity::class]
 )
 abstract class MonitorDatabase : RoomDatabase() {
-
    abstract fun diputadosDao(): DiputadosDao
-
 }

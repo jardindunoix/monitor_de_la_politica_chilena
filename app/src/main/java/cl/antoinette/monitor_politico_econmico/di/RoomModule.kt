@@ -26,5 +26,6 @@ object RoomModule {
 
    @Singleton
    @Provides
-   fun provideDiputadosDao(db: MonitorDatabase)= db.diputadosDao()
+   fun provideDiputadosDao(db: MonitorDatabase) = db.diputadosDao()
+
 }

@@ -1,4 +1,4 @@
-package cl.antoinette.monitor_politico_econmico.ui.features.diputados
+package cl.antoinette.monitor_politico_econmico.ui.features.diputados.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
