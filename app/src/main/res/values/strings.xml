@@ -1,24 +1,12 @@
 <resources>
-    <string name="app_name">Monitor Político Económico</string>
+    <string name="app_name">Monitor Político</string>
     <string name="splash_title">Monitor Político</string>
     <string name="content_description">content description</string>
 
-
     <string name="title_diputados_actuales">Diputados Actuales</string>
-    <string name="title_senadores_actuales">Senadores Actuales</string>
-    <string name="button_ir_a_diputados_actuales">Diputados Actuales</string>
-    <string name="button_ir_a_senadores_actuales">Senadores Actuales</string>
-    <string name="button_ir_a_partidos_politicos">Partidos Políticos</string>
-    <string name="button_ir_a_consejales_actuales">Consejales Actuales</string>
-    <string name="button_ir_a_gallery">Galería</string>
+    <string name="button_ir_a_diputados_actuales">Diputados</string>
     <string name="text_button_volver">Volver</string>
     <string name="text_diputados_actuales">Diputados</string>
-    <string name="text_senadores_actuales">Senadores</string>
-    <string name="text_consejales_actuales">Consejales</string>
-    <string name="text_partidos_politicos">Partidos Políticos</string>
-    <string name="text_gallery">Galería</string>
     <string name="progress_cargando">Cargando datos…</string>
     <string name="text_for_header_without_connection">No tienes conexión\nIntenta nuevamente, por favor.</string>
-    <string name="search_view_buscar_comuna">Buscar comuna</string>
-    <!---->
 </resources>

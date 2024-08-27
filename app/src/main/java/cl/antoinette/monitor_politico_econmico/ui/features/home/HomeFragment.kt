@@ -31,30 +31,11 @@ class HomeFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         YoYo.with(Techniques.FadeInLeft).duration(180).playOn(buttonIrADipActuales)
-        YoYo.with(Techniques.FadeInLeft).duration(230).playOn(buttonIrASenActuales)
-        YoYo.with(Techniques.FadeInLeft).duration(280).playOn(buttonPartPoliticos)
-        YoYo.with(Techniques.FadeInLeft).duration(330).playOn(buttonIrAConsejActuales)
-        YoYo.with(Techniques.FadeInLeft).duration(380).playOn(buttonIrAGallery)
 
         buttonIrADipActuales.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_diputadosFragment)
         }
 
-        buttonIrASenActuales.setOnClickListener {
-            Toast.makeText(context, "Senadores", Toast.LENGTH_SHORT).show()
-        }
-
-        buttonPartPoliticos.setOnClickListener {
-            Toast.makeText(context, "Partidos", Toast.LENGTH_SHORT).show()
-        }
-
-        buttonIrAConsejActuales.setOnClickListener {
-            Toast.makeText(context, "Consejales", Toast.LENGTH_SHORT).show()
-        }
-
-        buttonIrAGallery.setOnClickListener {
-            Toast.makeText(context, "Gallery", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onDestroyView() {
