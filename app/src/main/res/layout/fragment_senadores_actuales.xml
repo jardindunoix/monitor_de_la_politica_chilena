@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="@dimen/padding_normal_4dp"
     android:gravity="center_horizontal"
-    tools:context=".use_cases.activities.MainActivity">
+    tools:context=".ui.activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/header_mark"

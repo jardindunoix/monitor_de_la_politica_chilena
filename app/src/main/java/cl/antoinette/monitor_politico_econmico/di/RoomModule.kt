@@ -2,7 +2,7 @@ package cl.antoinette.monitor_politico_econmico.di
 
 import android.content.Context
 import androidx.room.Room
-import cl.antoinette.monitor_politico_econmico.database.room.MonitorDatabase
+import cl.antoinette.monitor_politico_econmico.data.database.room.MonitorDatabase
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
