@@ -2,8 +2,10 @@ package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.dom
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.DiputadosRepository
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.DiputadosWebScrapCallProvider
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.model.DiputadoModel
+import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.pojos.Diputado
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DIPUTADOS_DIP_ACT
 import kotlinx.coroutines.CoroutineScope
@@ -14,7 +16,9 @@ import org.jsoup.select.Elements
 import java.util.stream.Collectors
 import javax.inject.Inject
 
-class DiputadosUseCase @Inject constructor() {
+class DiputadosUseCase @Inject constructor(
+   private val repository: DiputadosRepository
+) {
    private var diputadosList = MutableLiveData<MutableList<DiputadoModel>?>(mutableListOf())
 
    init {
@@ -68,6 +72,17 @@ class DiputadosUseCase @Inject constructor() {
          return mutableListOf<DiputadoModel>()
       }
    }
+
+
+   suspend operator fun invoke(): List<Diputado> {
+//      if () {
+//
+//      } else {
+//
+//      }
+      return repository.getAllDiputadosFromDatabase()
+   }
+
 }
 
 

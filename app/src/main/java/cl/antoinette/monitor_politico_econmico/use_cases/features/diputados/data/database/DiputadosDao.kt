@@ -14,7 +14,7 @@ interface DiputadosDao {
 
    /* suspend permite liberar el hilo principal y se puede usar en un viewmodel*//*pero si se quiere usar el livedata/flows/RxJava/Waba?? no se pone en suspend*/
    @Query("SELECT * FROM diputados")
-   fun getAllDiputados(): LiveData<List<DiputadoEntity>>
+   suspend fun getAllDiputados(): List<DiputadoEntity>
 
    @Query("SELECT * FROM diputados WHERE id = :id")
    suspend fun getDiputado(id: Int): DiputadoEntity
