@@ -15,20 +15,10 @@ class MainActivity : AppCompatActivity() {
 
    private lateinit var binding: ActivityMainBinding
 
-//   val app = applicationContext as MonitorApp
-
    override fun onCreate(savedInstanceState: Bundle?) {
       super.onCreate(savedInstanceState)
       binding = ActivityMainBinding.inflate(layoutInflater)
       setContentView(binding.root)
-
-
-//      lifecycleScope.launch {
-//         val diputados = app.room
-//            .diputadosDao()
-//            .getAllDiputados()
-//         Log.d(TAG, "onCreate: ${diputados}")
-//      }
    }
 }
 

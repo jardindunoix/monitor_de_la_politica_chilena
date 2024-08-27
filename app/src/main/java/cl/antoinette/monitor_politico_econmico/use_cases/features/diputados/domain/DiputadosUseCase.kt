@@ -1,5 +1,6 @@
 package cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.DiputadosRepository
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data.network.DiputadosWebScrapCallProvider
@@ -7,6 +8,7 @@ import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.data
 import cl.antoinette.monitor_politico_econmico.use_cases.features.diputados.domain.pojos.Diputado
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DIPUTADOS_DIP_ACT
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -64,20 +66,16 @@ class DiputadosUseCase @Inject constructor(
                countAttr += 3
             }
          }
-
+         Log.d(TAG, "getDiputadosDocument: ${diputadosList.value}")
          return diputadosList.value
       } catch (e: Exception) {
+         Log.d(TAG, "getDiputadosDocument exception: ${e.localizedMessage}")
          return mutableListOf<DiputadoNetworkModel>()
       }
    }
 
 
    suspend operator fun invoke(): List<Diputado> {
-//      if () {
-//
-//      } else {
-//
-//      }
       return repository.getAllDiputadosFromDatabase()
    }
 

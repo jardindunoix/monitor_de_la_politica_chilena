@@ -41,12 +41,11 @@ class HomeFragment : Fragment() {
         }
 
         buttonIrASenActuales.setOnClickListener {
-            navController.navigate(R.id.action_homeFragment_to_senadoresFragment)
+            Toast.makeText(context, "Senadores", Toast.LENGTH_SHORT).show()
         }
 
         buttonPartPoliticos.setOnClickListener {
             Toast.makeText(context, "Partidos", Toast.LENGTH_SHORT).show()
-
         }
 
         buttonIrAConsejActuales.setOnClickListener {
