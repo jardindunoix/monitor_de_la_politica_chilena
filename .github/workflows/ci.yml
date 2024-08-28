@@ -21,6 +21,7 @@ jobs:
         uses: gradle/gradle-build-action@v3
       - name: Build app
         run: ./gradlew assemble
+# auth for gradelw command in git
 # git update-index --chmod=+x ./gradlew
 
 
