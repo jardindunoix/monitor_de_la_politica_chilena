@@ -8,6 +8,7 @@ import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.D
 @Database(
    version = DATABASE_VERSION,
    entities = [DiputadoEntity::class],
+// the schema is no exported to git
    exportSchema = false
 )
 abstract class MonitorDatabase : RoomDatabase() {
