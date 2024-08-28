@@ -26,9 +26,10 @@ class DiputadosUseCasesTest {
    @Test
    fun `when database return somthing then the webscrap is not used`(): Unit = runBlocking {
 //GIVEN
+      val dbResponse = repository.getDiputadosFromDatabase()
       coEvery { repository.getDiputadosFromDatabase() } returns emptyList()
 //WHEN
-
+      val useCase = dipUseCase()
 //THEN
       coVerify(exactly = 1) { repository.getDiputadosFromWebScrap() }
    }
