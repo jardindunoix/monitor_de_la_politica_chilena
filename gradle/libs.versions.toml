@@ -36,6 +36,8 @@ daggerHiltVersion = "2.49"
 daggerHiltnavigationComposeVersion = "1.1.0"
 daggerHiltGoogleComposeVersion = "1.1.0"
 hiltCompiler = "1.2.0"
+# ksp
+ksp="1.8.10-1.0.9"
 
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcomppat" }
@@ -96,3 +98,5 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 # added
 android-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerPluginVersion" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+# ksp migration
+#ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

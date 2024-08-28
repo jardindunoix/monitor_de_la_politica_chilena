@@ -1,9 +1,15 @@
 plugins {
    alias(libs.plugins.android.application)
-   alias(libs.plugins.jetbrains.kotlin.android) //    added
+   alias(libs.plugins.jetbrains.kotlin.android)
+   //    added
    alias(libs.plugins.android.dagger.hilt)
+//   alias(libs.plugins.ksp)
+
+
    id("kotlin-android")
-   id("kotlin-kapt")/*
+   id("kotlin-kapt")
+
+   /*
    id("com.android.application")
    id("org.jetbrains.kotlin.android")
    //    added
@@ -123,7 +129,9 @@ dependencies {
    //Room
    implementation(libs.room)
    // kapt genera el codigo para la base de datos
-   kapt(libs.roomkaptcompiler)/* <><><><> */
+   kapt(libs.roomkaptcompiler)
+// migrating to ksp
+   /* <><><><> *//* <><><><> *//* <><><><> *//* <><><><> */
    implementation(libs.androidx.core.ktx)
    implementation(libs.androidx.lifecycle.runtime.ktx)
    implementation(libs.androidx.activity.compose)

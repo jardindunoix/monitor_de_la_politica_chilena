@@ -5,6 +5,8 @@ plugins {
 //   added
     alias(libs.plugins.android.dagger.hilt) apply false
     alias(libs.plugins.android.library) apply false
+
+//    alias(libs.plugins.ksp) apply false
     /*
     id("com.android.application") version "8.1.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
