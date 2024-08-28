@@ -1,11 +1,9 @@
 plugins {
    alias(libs.plugins.android.application)
-   alias(libs.plugins.jetbrains.kotlin.android)
-//    added
+   alias(libs.plugins.jetbrains.kotlin.android) //    added
    alias(libs.plugins.android.dagger.hilt)
    id("kotlin-android")
-   id("kotlin-kapt")
-   /*
+   id("kotlin-kapt")/*
    id("com.android.application")
    id("org.jetbrains.kotlin.android")
    //    added
@@ -62,10 +60,18 @@ android {
    flavorDimensions += "version"
    productFlavors {
       create("MonitorPolitico") {
-         resValue("string", "app_name", "Monitor Politico")
+         resValue(
+            "string",
+            "app_name",
+            "Monitor Politico"
+         )
          applicationIdSuffix = ".MonitorPolitico"
          versionNameSuffix = "1_MonitorPolitico"
-         buildConfigField("String", "URL_BASE", "\"https://back.sellers-info.cl/api/charger/\"")
+         buildConfigField(
+            "String",
+            "URL_BASE",
+            "\"https://back.sellers-info.cl/api/charger/\""
+         )
       }
    }
 
@@ -76,62 +82,48 @@ android {
 }
 
 dependencies {
-   val navVersion = "2.6.0"
-   val picassoVersion = "2.71828"
-   val lifecycleVersion = "2.6.2"
-   val retrofitVersion = "2.9.0"
-   val roomVersion = "2.6.1"
-   val coroutinesVersion = "1.7.3"
-   val daggerHiltVersion = "2.48"
-   val animationVersion = "2.4@aar"
-   val materialVersion = "1.10.0"
-   val jsoupVersion = "1.13.1"
+   implementation(libs.androidx.appcompat)
 
-   implementation("androidx.appcompat:appcompat:1.6.1")
    //*splashscreen*//*
-   implementation("androidx.core:core-splashscreen:1.0.1")
+   implementation(libs.androidx.splash)
    //*navigation NO CAMBIAR LA VERSION "2.6.0" **************//*
-   implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-   implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
-   implementation("androidx.legacy:legacy-support-v4:1.0.0")
+   implementation(libs.androidx.navigation.fragment)
+   implementation(libs.androidx.navigation.fragmentktx)
+   implementation(libs.androidx.legacy)
    //*picasso*//*
-   implementation("com.squareup.picasso:picasso:$picassoVersion")
+   implementation(libs.androidx.picasso)
    // constraint layout
-   implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+   implementation(libs.androidx.constraintlayout)
    //    coroutines
-   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+   implementation(libs.androidx.coroutines)
+   implementation(libs.androidx.coroutinesandroid)
    //   coroutine lifecycle scopes
-   implementation("androidx.activity:activity-ktx:1.8.1")
-   implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-   implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
-   implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+   implementation(libs.androidx.activityktx)
+   implementation(libs.androidx.lifecyclesextensions)
+   implementation(libs.androidx.lifecycle)
    // KTX - Viewmodel Y Livedata NO ACTUALIZAR: 2.5.1
-   implementation("androidx.lifecycle:lifecycle-livedata-ktx: 2.5.1")
+   implementation(libs.androidx.lifecycle.livedata)
    //    data store
-   implementation("androidx.datastore:datastore-preferences:1.0.0")
+   implementation(libs.androidx.datastore)
    //    retrofit
-   implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-   implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-   implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
-   implementation("com.google.code.gson:gson:2.9.0")
-   implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
+   implementation(libs.androidx.retrofit)
+   implementation(libs.androidx.retrofitgson)
+
+   implementation(libs.googlegson)
+
+   implementation(libs.okhttp)
+   implementation(libs.okhttp.interceptor)
    //*implementacion para el carrousel*//*
    // Optional: Circle Indicator (To fix the xml preview "Missing classes" error)
-   implementation("me.relex:circleindicator:2.1.6")
-   implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:1.3.0")
-   // animation
-   implementation("com.daimajia.easing:library:$animationVersion")
-   implementation("com.daimajia.androidanimations:library:$animationVersion")
+   implementation(libs.circleindicator)
+   implementation(libs.carrousel)
    //*material design*//*
-   implementation("com.google.android.material:material:$materialVersion")
-   //* implementation("org.jsoup:jsoup:$jsoup_version")*//*
-   implementation("org.jsoup:jsoup:$jsoupVersion")
+   implementation(libs.materialgoogle)
+   implementation(libs.jsoup)
    //Room
-   implementation("androidx.room:room-ktx:2.6.1")
+   implementation(libs.room)
    // kapt genera el codigo para la base de datos
-   kapt("androidx.room:room-compiler:2.6.1")
-   /* <><><><> */
+   kapt(libs.roomkaptcompiler)/* <><><><> */
    implementation(libs.androidx.core.ktx)
    implementation(libs.androidx.lifecycle.runtime.ktx)
    implementation(libs.androidx.activity.compose)
@@ -140,8 +132,7 @@ dependencies {
    implementation(libs.androidx.ui.graphics)
    implementation(libs.androidx.ui.tooling.preview)
    implementation(libs.androidx.material3)
-
-
+// TEST
    testImplementation(libs.junit)
    androidTestImplementation(libs.androidx.junit)
    androidTestImplementation(libs.androidx.espresso.core)

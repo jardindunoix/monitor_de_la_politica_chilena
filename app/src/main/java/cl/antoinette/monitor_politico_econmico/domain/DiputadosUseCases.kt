@@ -6,7 +6,7 @@ import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import javax.inject.Inject
 
-class DiputadosUseCase @Inject constructor(
+class DiputadosUseCases @Inject constructor(
    private val repository: DiputadosRepository
 ) {
 
