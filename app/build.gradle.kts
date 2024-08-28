@@ -143,6 +143,10 @@ dependencies {
 // TEST unitarios
    testImplementation(libs.junit)
 
+//   added tests MOKK y mockito
+   testImplementation(libs.mokk)
+   testImplementation(libs.mockitocore)
+   testImplementation(libs.mockitoinline)
 // TEST unitarios
    androidTestImplementation(libs.androidx.junit)
    androidTestImplementation(libs.androidx.espresso.core)

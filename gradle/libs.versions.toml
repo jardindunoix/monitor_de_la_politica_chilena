@@ -39,6 +39,10 @@ hiltCompiler = "1.2.0"
 # ksp
 ksp="1.8.10-1.0.9"
 
+mokk="1.13.12"
+mockito="2.25.0"
+mockitoinline="2.13.0"
+
 [libraries]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcomppat" }
 androidx-splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashcreen" }
@@ -69,11 +73,19 @@ roomkaptcompiler = { group = "androidx.room", name = "room-compiler", version.re
 
 #
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
+#TESTS
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+
+# TESTS ADDED
+mokk={ group = "io.mockk", name = "mockk", version.ref = "mokk"}
+mockitocore={ group = "org.mockito", name = "mockito-core", version.ref = "mockito"}
+mockitoinline={ group = "org.mockito", name = "mockito-inline", version.ref = "mockitoinline"}
+
 # bom
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
