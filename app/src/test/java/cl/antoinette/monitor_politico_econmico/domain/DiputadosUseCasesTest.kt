@@ -24,25 +24,12 @@ class DiputadosUseCasesTest {
    }
 
    @Test
-   fun `when the network doesnt return the list is empty then use database instead`(): Unit = runBlocking {
-//GIVEN
-      coEvery { repository.getDiputadosFromWebScrap() } returns emptyList()
-//WHEN
-      dipUseCase()
-//THEN
-      coVerify(exactly = 1) { repository.getDiputadosFromDatabase() }
-
-   }
-
-
-   @Test
    fun `when database return somthing then the webscrap is not used`(): Unit = runBlocking {
 //GIVEN
-
+      coEvery { repository.getDiputadosFromDatabase() } returns emptyList()
 //WHEN
 
 //THEN
-
-
+      coVerify(exactly = 1) { repository.getDiputadosFromWebScrap() }
    }
 }
