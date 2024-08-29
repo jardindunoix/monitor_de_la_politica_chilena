@@ -24,7 +24,7 @@ class DiputadosUseCasesTest {
    }
 
    @Test
-   fun `when database return somthing then the webscrap is not used`(): Unit = runBlocking {
+   fun `when database return empty list then the webscrap is called`(): Unit = runBlocking {
 //GIVEN
       val dbResponse = repository.getDiputadosFromDatabase()
       coEvery { repository.getDiputadosFromDatabase() } returns emptyList()

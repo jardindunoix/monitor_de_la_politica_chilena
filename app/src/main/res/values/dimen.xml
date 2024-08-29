@@ -21,4 +21,6 @@
     <dimen name="heigt_header_partidos_politicos">90dp</dimen>
     <dimen name="margin_top_header">70dp</dimen>
     <dimen name="margin_top_header_partidos_politicos">10dp</dimen>
+
+    <dimen name="margin_start_29">29dp</dimen>
 </resources>

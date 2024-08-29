@@ -16,6 +16,7 @@ import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActu
 import cl.antoinette.monitor_politico_econmico.ui.features.diputados.adapter.DiputadosAdapter
 import cl.antoinette.monitor_politico_econmico.ui.features.diputados.view_model.DiputadosViewModel
 import cl.antoinette.monitor_politico_econmico.utilities.ExtensionFunctions.Companion.initRecyclerView
+import cl.antoinette.monitor_politico_econmico.utilities.isOnline
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -23,54 +24,68 @@ import kotlinx.coroutines.launch
 class DiputadosFragment : Fragment() {
 
 
-    private var _binding: FragmentDiputadosActualesBinding? = null
-    private val binding get() = _binding!!
+   private var _binding: FragmentDiputadosActualesBinding? = null
+   private val binding get() = _binding!!
 
-    private val diputadosViewModel by viewModels<DiputadosViewModel>()
-    private lateinit var adapter: DiputadosAdapter
+   private val diputadosViewModel by viewModels<DiputadosViewModel>()
+   private lateinit var adapter: DiputadosAdapter
 
-    @SuppressLint("InflateParams")
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentDiputadosActualesBinding.inflate(layoutInflater)
-        return binding.root
-    }
+   @SuppressLint("InflateParams")
+   override fun onCreateView(
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
+   ): View {
+      _binding = FragmentDiputadosActualesBinding.inflate(layoutInflater)
+      return binding.root
+   }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initList()
-        initUIState()
-        viewEvents()
-    }
+   override fun onViewCreated(
+      view: View,
+      savedInstanceState: Bundle?
+   ) {
+      super.onViewCreated(view, savedInstanceState)
+      initList()
+      initUIState()
+      viewEvents()
+   }
 
-    private fun viewEvents() {
-        binding.backIcon.setOnClickListener {
-            findNavController().navigate(R.id.action_diputadosFragment_to_homeFragment)
-        }
-    }
+   private fun viewEvents() {
+      binding.backIcon.setOnClickListener {
+         findNavController().navigate(R.id.action_diputadosFragment_to_homeFragment)
+      }
+   }
 
-    private fun initUIState() {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                diputadosViewModel.diputadosActualesList.observe(viewLifecycleOwner) {
-                    adapter.setItemInTheView(it)
-                }
+   private fun initUIState() {
+
+      diputadosViewModel.isOnline.observe(viewLifecycleOwner) { isOnline ->
+         if (isOnline || isOnline(requireContext())) {
+            binding.internetMessage.visibility = View.GONE
+
+            lifecycleScope.launch {
+               repeatOnLifecycle(Lifecycle.State.STARTED) {
+                  diputadosViewModel.diputadosActualesList.observe(viewLifecycleOwner) {
+                     adapter.setItemInTheView(it)
+                  }
+               }
             }
-        }
-    }
 
-    private fun initList() {
-        adapter = DiputadosAdapter(mutableListOf(),
-            onItemSelected = {
-                findNavController().navigate(R.id.action_diputadosFragment_to_diputadoDetailFragment)
-            })
-        initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), adapter)
-    }
+         } else {
+            binding.internetMessage.visibility = View.VISIBLE
+         }
+      }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+   }
+
+   private fun initList() {
+      adapter = DiputadosAdapter(mutableListOf(), onItemSelected = {
+         findNavController().navigate(R.id.action_diputadosFragment_to_diputadoDetailFragment)
+      })
+      initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), adapter)
+   }
+
+   override fun onDestroyView() {
+      super.onDestroyView()
+      _binding = null
+   }
 }
