@@ -29,4 +29,7 @@ interface DiputadosDao {
 
    @Insert
    suspend fun insertDiputado(diputado: DiputadoEntity)
+
+   @Query("DELETE FROM DIPUTADOS")
+   suspend fun clearDiputadosTable()
 }

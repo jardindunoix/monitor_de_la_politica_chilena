@@ -1,7 +1,6 @@
 package cl.antoinette.monitor_politico_econmico.ui.features.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,9 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentHomeBinding
-import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -48,9 +45,7 @@ class HomeFragment : Fragment() {
 
       buttonRecall.setOnClickListener {
          lifecycleScope.launch(Dispatchers.IO) {
-            withContext(Dispatchers.Main) {
-               homeViewModel.clearData(badge.isVisible)
-            }
+            homeViewModel.clearData(badge.isVisible)
          }
       }
 

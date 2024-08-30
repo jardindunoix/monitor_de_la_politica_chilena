@@ -29,4 +29,8 @@ class DiputadosRepository @Inject constructor(
          .getDiputadosActuales()
          .map { it!!.toDomain() }
    }
+
+   suspend fun clearTables() {
+      dao.clearDiputadosTable()
+   }
 }
