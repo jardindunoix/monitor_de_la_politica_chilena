@@ -27,8 +27,9 @@ class DiputadosViewModel
         }
     }
 
-    private suspend fun getDiputadosActualesList() {
+     private suspend fun getDiputadosActualesList() {
         diputadosActualesList.postValue(diputadosUseCase.invoke())
     }
+
 
 }

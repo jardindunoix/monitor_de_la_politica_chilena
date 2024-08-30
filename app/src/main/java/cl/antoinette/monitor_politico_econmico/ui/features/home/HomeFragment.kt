@@ -1,20 +1,31 @@
 package cl.antoinette.monitor_politico_econmico.ui.features.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentHomeBinding
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
    private var _binding: FragmentHomeBinding? = null
    private val binding get() = _binding!!
    private lateinit var navController: NavController
+   private val homeViewModel by viewModels<HomeViewModel>()
    override fun onCreateView(
       inflater: LayoutInflater,
       container: ViewGroup?,
@@ -36,15 +47,19 @@ class HomeFragment : Fragment() {
       }
 
       buttonRecall.setOnClickListener {
-         if (progressbar.visibility == View.GONE) {
-            progressbar.visibility = View.VISIBLE
-            badge.visibility = View.GONE
-         }else{
-            progressbar.visibility = View.GONE
-            badge.visibility = View.VISIBLE
+
+         lifecycleScope.launch(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
+               homeViewModel.clearData(badge.isVisible)
+            }
          }
       }
 
+      homeViewModel.spinner.observe(viewLifecycleOwner) {
+         Log.d(TAG, "onViewCreated??????: $it")
+         badge.isVisible = it
+         progressbar.isVisible = !it
+      }
    }
 
    override fun onDestroyView() {

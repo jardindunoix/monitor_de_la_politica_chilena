@@ -3,8 +3,6 @@ package cl.antoinette.monitor_politico_econmico.utilities
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.util.Log
-import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 
 
 fun isOnline(context: Context): Boolean {
@@ -13,13 +11,13 @@ fun isOnline(context: Context): Boolean {
    val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
    if (capabilities != null) {
       if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-         Log.i(TAG, "NetworkCapabilities.TRANSPORT_CELLULAR")
+//         Log.i(TAG, "NetworkCapabilities.TRANSPORT_CELLULAR")
          return true
       } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-         Log.i(TAG, "NetworkCapabilities.TRANSPORT_WIFI")
+//         Log.i(TAG, "NetworkCapabilities.TRANSPORT_WIFI")
          return true
       } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
-         Log.i(TAG, "NetworkCapabilities.TRANSPORT_ETHERNET")
+//         Log.i(TAG, "NetworkCapabilities.TRANSPORT_ETHERNET")
          return true
       }
    }
