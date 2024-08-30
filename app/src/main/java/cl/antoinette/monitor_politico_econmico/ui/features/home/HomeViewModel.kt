@@ -7,9 +7,6 @@ import androidx.lifecycle.asLiveData
 import cl.antoinette.monitor_politico_econmico.data.ConnectivityRepository
 import cl.antoinette.monitor_politico_econmico.domain.DiputadosUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,11 +17,14 @@ class HomeViewModel @Inject constructor(
 
    val isOnline = connectivityRepository.isConnected.asLiveData()
 
-   private val _spinner = MutableLiveData<Boolean>(false)
+   private val _spinner = MutableLiveData<Boolean>(true)
    var spinner: LiveData<Boolean> = _spinner
 
    suspend fun clearData(badgeState: Boolean) {
-      _spinner.value = diputadosUseCase.clearData(badgeState)
+      _spinner.value = !badgeState
+      diputadosUseCase.clearData()
+      _spinner.value = badgeState
+
    }
 
 }

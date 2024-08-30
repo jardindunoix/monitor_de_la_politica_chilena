@@ -47,7 +47,6 @@ class HomeFragment : Fragment() {
       }
 
       buttonRecall.setOnClickListener {
-
          lifecycleScope.launch(Dispatchers.IO) {
             withContext(Dispatchers.Main) {
                homeViewModel.clearData(badge.isVisible)
@@ -56,7 +55,6 @@ class HomeFragment : Fragment() {
       }
 
       homeViewModel.spinner.observe(viewLifecycleOwner) {
-         Log.d(TAG, "onViewCreated??????: $it")
          badge.isVisible = it
          progressbar.isVisible = !it
       }
