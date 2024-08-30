@@ -27,7 +27,9 @@ class HomeViewModel @Inject constructor(
       viewModelScope.launch(Dispatchers.Main) {
       _spinner.value = !badgeState
       }
+
       diputadosUseCase.clearData()
+
       viewModelScope.launch(Dispatchers.Main) {
       _spinner.value = badgeState
       }
