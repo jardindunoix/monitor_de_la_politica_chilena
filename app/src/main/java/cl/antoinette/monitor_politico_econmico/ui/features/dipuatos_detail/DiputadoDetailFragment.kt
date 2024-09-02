@@ -1,6 +1,7 @@
-package cl.antoinette.monitor_politico_econmico.ui.features.diputados.fragments
+package cl.antoinette.monitor_politico_econmico.ui.features.dipuatos_detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadoDetailBinding
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 
 class DiputadoDetailFragment : Fragment() {
 
@@ -19,11 +21,7 @@ class DiputadoDetailFragment : Fragment() {
       container: ViewGroup?,
       savedInstanceState: Bundle?
    ): View? {
-      _binding = FragmentDiputadoDetailBinding.inflate(
-         inflater,
-         container,
-         false
-      )
+      _binding = FragmentDiputadoDetailBinding.inflate(inflater, container, false)
       return binding.root
    }
 
@@ -31,10 +29,12 @@ class DiputadoDetailFragment : Fragment() {
       view: View,
       savedInstanceState: Bundle?
    ) {
-      super.onViewCreated(
-         view,
-         savedInstanceState
-      )
+      super.onViewCreated(view, savedInstanceState)
+
+      val idDiputado = arguments?.getInt("id")
+      val webDiputado = arguments?.getString("web")
+
+      Log.d(TAG, "onViewCreated: $idDiputado $webDiputado")
 
       viewEvents()
    }
@@ -45,8 +45,8 @@ class DiputadoDetailFragment : Fragment() {
       }
    }
 
-
    override fun onDestroy() {
       super.onDestroy()
+      _binding = null
    }
 }

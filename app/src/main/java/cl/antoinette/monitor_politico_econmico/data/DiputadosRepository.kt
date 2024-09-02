@@ -1,11 +1,13 @@
 package cl.antoinette.monitor_politico_econmico.data
 
+import android.util.Log
 import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
 import cl.antoinette.monitor_politico_econmico.data.database.room.DiputadosDao
 import cl.antoinette.monitor_politico_econmico.data.network.DiputadosWebScrapCallProvider
 import cl.antoinette.monitor_politico_econmico.domain.mappers.toDomain
 import cl.antoinette.monitor_politico_econmico.domain.mappers.toEntity
 import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import javax.inject.Inject
 
 class DiputadosRepository @Inject constructor(
@@ -21,7 +23,10 @@ class DiputadosRepository @Inject constructor(
    suspend fun getDiputadosFromWebScrap(): List<Diputado> {
       val response = diputadosWebscrapProvider.getDiputadosActuales()
       dao.insertDiputadosAll(response.map { it!!.toEntity() })
-      return response.map { it!!.toDomain() }
+      return response.map {
+//         Log.d(TAG, "getDiputadosFromWebScrap: ${it?.paginaWeb}")
+         it!!.toDomain()
+      }
    }
 
    suspend fun getDiputadosFromDatabase(): List<Diputado> {

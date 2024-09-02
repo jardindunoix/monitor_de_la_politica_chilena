@@ -3,6 +3,7 @@ package cl.antoinette.monitor_politico_econmico.data.network.model
 import com.google.gson.annotations.SerializedName
 
 data class DiputadoNetworkModel(
+
    @SerializedName("nombre")
    var nombre: String = "NOMBRE del CHORRO",
    @SerializedName("apellido")

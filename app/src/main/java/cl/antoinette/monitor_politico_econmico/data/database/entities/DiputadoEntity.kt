@@ -7,8 +7,8 @@ import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.T
 
 @Entity(TABLE_DIPUTADOS)
 data class DiputadoEntity(
-   @PrimaryKey(autoGenerate = true)
    @ColumnInfo("id")
+   @PrimaryKey(autoGenerate = true)
    val id: Int = 0,
    @ColumnInfo("nombre")
    val nombre: String,

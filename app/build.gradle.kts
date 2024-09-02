@@ -87,6 +87,10 @@ android {
       }
    }
 
+   testOptions {
+      unitTests.isReturnDefaultValues = true
+   }
+
    //    no se si sirve
    hilt {
       enableAggregatingTask = true

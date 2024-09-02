@@ -1,4 +1,4 @@
-package cl.antoinette.monitor_politico_econmico.ui.features.diputados.fragments
+package cl.antoinette.monitor_politico_econmico.ui.features.diputados
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadosActualesBinding
 import cl.antoinette.monitor_politico_econmico.ui.features.diputados.adapter.DiputadosAdapter
-import cl.antoinette.monitor_politico_econmico.ui.features.diputados.view_model.DiputadosViewModel
 import cl.antoinette.monitor_politico_econmico.utilities.ExtensionFunctions.Companion.initRecyclerView
 import cl.antoinette.monitor_politico_econmico.utilities.isOnline
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,12 +22,11 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class DiputadosFragment : Fragment() {
 
-
    private var _binding: FragmentDiputadosActualesBinding? = null
    private val binding get() = _binding!!
 
    private val diputadosViewModel by viewModels<DiputadosViewModel>()
-   private lateinit var adapter: DiputadosAdapter
+   private lateinit var diputadosAdapter: DiputadosAdapter
 
    @SuppressLint("InflateParams")
    override fun onCreateView(
@@ -65,7 +63,7 @@ class DiputadosFragment : Fragment() {
             lifecycleScope.launch {
                repeatOnLifecycle(Lifecycle.State.STARTED) {
                   diputadosViewModel.diputadosActualesList.observe(viewLifecycleOwner) {
-                     adapter.setItemInTheView(it)
+                     diputadosAdapter.setItemInTheView(it)
                   }
                }
             }
@@ -74,14 +72,11 @@ class DiputadosFragment : Fragment() {
             binding.internetMessage.visibility = View.VISIBLE
          }
       }
-
    }
 
    private fun initList() {
-      adapter = DiputadosAdapter(mutableListOf(), onItemSelected = {
-         findNavController().navigate(R.id.action_diputadosFragment_to_diputadoDetailFragment)
-      })
-      initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), adapter)
+      diputadosAdapter = DiputadosAdapter()
+      initRecyclerView(binding.recyclerViewDiputadosActuales, requireContext(), diputadosAdapter)
    }
 
    override fun onDestroyView() {
