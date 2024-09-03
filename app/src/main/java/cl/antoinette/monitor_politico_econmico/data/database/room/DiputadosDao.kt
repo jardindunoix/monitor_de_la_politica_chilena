@@ -7,7 +7,9 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
+import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoDetailEntity
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS_DETAIL
 
 @Dao
 interface DiputadosDao {
@@ -17,7 +19,7 @@ interface DiputadosDao {
    suspend fun getAllDiputados(): List<DiputadoEntity>
 
    @Query("SELECT * FROM diputados WHERE id = :id")
-   suspend fun getDiputado(id: Int): DiputadoEntity
+   suspend fun getDiputado(id: String): DiputadoEntity
 
    @Update
    suspend fun updateDiputado(diputado: DiputadoEntity)
@@ -29,10 +31,13 @@ interface DiputadosDao {
    suspend fun insertDiputadosAll(diputados: List<DiputadoEntity>)
 
    @Insert
-   suspend fun insertDiputado(diputado: DiputadoEntity)
+   suspend fun insertDiputadoEntity(diputado: DiputadoDetailEntity)
 
    @Query("DELETE FROM $TABLE_DIPUTADOS")
    suspend fun clearDiputadosTable()
+
+   @Query("SELECT * FROM $TABLE_DIPUTADOS_DETAIL  WHERE id = :id")
+   suspend fun getDiputadoDetailEntity(id: String): DiputadoDetailEntity?
 
 //   @Query("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='$TABLE_DIPUTADOS'")
 //   fun resetTable()

@@ -20,6 +20,9 @@ data class DiputadoDetailNetworkModel(
    @SerializedName("partido")
    val partido: String = "",
 
+   @SerializedName("periodo")
+   val periodo: String = "",
+
    @SerializedName("bancada")
    val bancada: String = "",
 

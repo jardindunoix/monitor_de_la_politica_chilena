@@ -1,5 +1,6 @@
 package cl.antoinette.monitor_politico_econmico.data
 
+import android.util.Log
 import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
 import cl.antoinette.monitor_politico_econmico.data.database.room.DiputadosDao
 import cl.antoinette.monitor_politico_econmico.data.network.DiputadoDetailWebScrapCallProvider
@@ -8,6 +9,7 @@ import cl.antoinette.monitor_politico_econmico.domain.mappers.toDomain
 import cl.antoinette.monitor_politico_econmico.domain.mappers.toEntity
 import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
 import cl.antoinette.monitor_politico_econmico.domain.pojos.DiputadoDetail
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import javax.inject.Inject
 
 class DiputadosRepository @Inject constructor(
@@ -41,9 +43,28 @@ class DiputadosRepository @Inject constructor(
       dao.clearDiputadosTable()
    }
 
-   suspend fun getDiputadoDetail(url: String): DiputadoDetail {
-      val response = diputadoDetailWebscrapProvider.getDiputadoDetail(url)
+   suspend fun getDiputadoDetail(
+      id: String,
+      url: String
+   ): DiputadoDetail {
 
-      return response.toDomain()
+      val diputadoDB = dao.getDiputadoDetailEntity(id)
+
+      return if (diputadoDB?.nombre == null) {
+         Log.d(
+            TAG,
+            "DETAIL WEBSCRAP: "
+         )
+         val diputadoWS = diputadoDetailWebscrapProvider.getDiputadoDetailNetwork(url)
+         dao.insertDiputadoEntity(diputadoWS.toEntity())
+         diputadoWS.toDomain()
+      } else {
+         Log.d(
+            TAG,
+            "DETAIL DATABASE: "
+         )
+         diputadoDB.toDomain()
+      }
+
    }
 }

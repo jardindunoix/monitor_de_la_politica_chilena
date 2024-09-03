@@ -7,6 +7,7 @@ data class DiputadoDetail(
    var comunas: String = "",
    var distrito: String = "",
    val partido: String = "",
+   val periodo: String = "",
    val bancada: String = "",
    val picture: String = ""
 )

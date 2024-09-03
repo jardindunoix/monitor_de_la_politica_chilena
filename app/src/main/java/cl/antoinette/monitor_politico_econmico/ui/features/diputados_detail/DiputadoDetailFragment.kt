@@ -48,15 +48,10 @@ class DiputadoDetailFragment : Fragment() {
       val idDiputado = arguments?.getString("id")
       val webDiputado = arguments?.getString("web")
 
-//      Log.d(
-//         TAG,
-//         "onViewCreated: $idDiputado $webDiputado"
-//      )
-
       viewEvents()
 
       lifecycleScope.launch(Dispatchers.IO) {
-         diputadosDetailViewModel.getDiputadosActualesList(webDiputado!!)
+         diputadosDetailViewModel.getDiputadosActualesList(idDiputado!!, webDiputado!!)
       }
    }
 

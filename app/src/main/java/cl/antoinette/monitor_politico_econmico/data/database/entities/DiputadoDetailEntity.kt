@@ -16,7 +16,7 @@ import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.T
       onUpdate = ForeignKey.CASCADE
    )]
 )
-data class DiputadosDetailEntity(
+data class DiputadoDetailEntity(
    @ColumnInfo("id")
    @PrimaryKey(autoGenerate = true)
    val id: Int = 0,
@@ -38,6 +38,9 @@ data class DiputadosDetailEntity(
 
    @ColumnInfo("partido")
    val partido: String,
+
+   @ColumnInfo("periodo")
+   val periodo: String,
 
    @ColumnInfo("bancada")
    val bancada: String,

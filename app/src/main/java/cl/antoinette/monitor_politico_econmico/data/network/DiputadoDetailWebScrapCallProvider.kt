@@ -2,6 +2,7 @@ package cl.antoinette.monitor_politico_econmico.data.network
 
 import android.util.Log
 import cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoDetailNetworkModel
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -10,7 +11,7 @@ import javax.inject.Inject
 
 class DiputadoDetailWebScrapCallProvider @Inject constructor() {
 
-   suspend fun getDiputadoDetail(url: String): DiputadoDetailNetworkModel {
+   suspend fun getDiputadoDetailNetwork(url: String): DiputadoDetailNetworkModel {
       try {
          val jsoup = Jsoup
             .connect(url)
@@ -19,6 +20,32 @@ class DiputadoDetailWebScrapCallProvider @Inject constructor() {
          val document: Document = jsoup
 
          val articleElement: Elements = document.select("section div.auxi div.grid-3 p")
+
+         val picture = BASE_URL_DIP_ACT + document
+            .select("form div.grid-2 img")
+            .attr("src")
+            .toString()
+
+         val name = document
+            .select("form div.grid-2 img")
+            .attr("alt")
+            .toString()
+            .replace(
+               "Diputada",
+               ""
+            )
+            .replace(
+               "Diputado",
+               ""
+            )
+            .trim()
+
+
+         Log.d(
+            TAG,
+            "getDiputadoDetail: $picture $name "
+         )
+
          val data = articleElement
             .toString()
             .replace(
@@ -33,22 +60,20 @@ class DiputadoDetailWebScrapCallProvider @Inject constructor() {
 
          val comunas = data[0]
          val distrito = data[1]
-
-         Log.d(
-            TAG,
-            "WEBSCRAP  $comunas / $distrito /" + "REGION ${data[2]} / PERIODO ${data[3]} / PARTIDO ${data[4]} / BANCADA ${data[5]}"
-         )
-
-
+         val region = data[2]
+         val periodo = data[3]
+         val partido = data[4]
+         val bancada = data[5]
 
          return DiputadoDetailNetworkModel(
-            nombre = "Diputada María Candelaria Acevedo Sáez",
-            region = "Región del Bío Bío",
-            comunas = "Hualpén, Hualqui, Coronel, San Pedro de la Paz, Tomé, Concepción, Santa Juana, Talcahuano, Penco, Florida, Chiguayante",
-            distrito = "Nº 20",
-            partido = "Partido Comunista",
-            bancada = "Comité Comunista, Federación Regionalista Verde Social, Acción Humanista e Independientes ",
-            picture = "https://www.camara.cl/img.aspx?prmID=GRCL1096"
+            nombre = name,
+            region = region,
+            comunas = comunas,
+            distrito = distrito,
+            partido = partido,
+            periodo = periodo,
+            bancada = bancada,
+            picture = picture
          )
       } catch (e: Exception) {
          return DiputadoDetailNetworkModel(
