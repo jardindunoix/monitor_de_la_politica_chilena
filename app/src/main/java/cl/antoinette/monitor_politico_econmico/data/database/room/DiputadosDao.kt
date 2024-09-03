@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
 import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoDetailEntity
+import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS_DETAIL
 
@@ -31,7 +31,7 @@ interface DiputadosDao {
    suspend fun insertDiputadosAll(diputados: List<DiputadoEntity>)
 
    @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertDiputadoEntity(diputado: DiputadoDetailEntity)
+   suspend fun insertDiputadoDetailEntity(diputado: DiputadoDetailEntity)
 
    @Query("DELETE FROM $TABLE_DIPUTADOS")
    suspend fun clearDiputadosTable()

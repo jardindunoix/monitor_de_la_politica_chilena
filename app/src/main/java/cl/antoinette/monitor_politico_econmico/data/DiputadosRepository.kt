@@ -64,7 +64,6 @@ class DiputadosRepository @Inject constructor(
 //            "DETAIL WEBSCRAP: $diputadoWS "
 //         )
 
-         dao.insertDiputadoEntity(diputadoWS.toEntity())
          diputadoWS.toDomain()
       } else {
 
