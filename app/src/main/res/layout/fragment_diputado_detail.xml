@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/back_icon"
@@ -27,14 +31,101 @@
             android:contentDescription="@string/content_description" />
 
     </LinearLayout>
+    <!--picture-->
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_mark"
+        tools:src="@drawable/portada"
 
-<!--    <TextView-->
-<!--        android:id="@+id/text_view_"-->
-<!--        android:layout_width="180dp"-->
-<!--        android:layout_height="108dp"-->
-<!--        android:fontFamily="@font/angeline_vintage_demo"-->
-<!--        android:text="Detalle diputado"-->
-<!--        android:textColor="@color/gray_3"-->
-<!--        android:textSize="@dimen/text_size_28sp" />-->
+        />
+    <!--nombre-->
+    <TextView
+        android:id="@+id/name_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/picture"
+        tools:text="chorro name" />
+    <!--partido-->
+    <TextView
+        android:id="@+id/partido_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_detail"
+        tools:text="partido: del chorro" />
+    <!--bancada-->
+    <TextView
+        android:id="@+id/bancada_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/partido_detail"
+        tools:text="bancada: del chorro" />
+    <!--distrito-->
+    <TextView
+        android:id="@+id/distrito_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bancada_detail"
+        tools:text="distrito: del chorro" />
+    <!--region-->
+    <TextView
+        android:id="@+id/region_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/distrito_detail"
+        tools:text="region del chorro" />
+    <!--comunas-->
+    <TextView
+        android:id="@+id/comunas_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/region_detail"
+        tools:text="comunas del chorro" />
+    <!--periodo-->
+    <TextView
+        android:id="@+id/periodo_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white_2"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comunas_detail"
+        tools:text="periodo del chorro" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package cl.antoinette.monitor_politico_econmico.domain
 
 import cl.antoinette.monitor_politico_econmico.data.DiputadosRepository
 import cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
+import cl.antoinette.monitor_politico_econmico.domain.pojos.DiputadoDetail
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
@@ -25,6 +26,9 @@ class DiputadosUseCases @Inject constructor(
       }
    }
 
+   suspend fun getDiputadoDetail(url: String): DiputadoDetail {
+      return repository.getDiputadoDetail(url)
+   }
 
 }
 

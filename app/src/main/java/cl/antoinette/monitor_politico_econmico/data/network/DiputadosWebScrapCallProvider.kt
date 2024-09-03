@@ -1,11 +1,9 @@
 package cl.antoinette.monitor_politico_econmico.data.network
 
-import android.util.Log
 import cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoNetworkModel
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DIPUTADOS_DIP_ACT
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.END_POINT_DIP_ACT
-import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -30,12 +28,12 @@ class DiputadosWebScrapCallProvider @Inject constructor() {
       try {
          val document: Document = getDiputadosDocument()
          val articleElement: Elements = document.select("article.grid-2")
-         val h4Elements = articleElement
+         val nameList = articleElement
             .select("h4")
             .eachText()
-         val nameList = h4Elements
             .stream()
             .collect(Collectors.toList())
+
          val webpage = articleElement
             .select("a")
             .eachAttr("href")
@@ -66,6 +64,7 @@ class DiputadosWebScrapCallProvider @Inject constructor() {
                            newValue
                         ),
                      paginaWeb = "${BASE_URL_DIP_ACT}$DIPUTADOS_DIP_ACT${webpage[countAttr]}",
+                     id = "${BASE_URL_DIP_ACT}$DIPUTADOS_DIP_ACT${webpage[countAttr]}".split("prmID=")[1],
                      picture = "${BASE_URL_DIP_ACT}${f}"
                   )
                )

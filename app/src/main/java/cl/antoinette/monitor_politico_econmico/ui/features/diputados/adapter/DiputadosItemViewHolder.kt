@@ -22,14 +22,18 @@ class DiputadosItemViewHolder(private val binding: ItemDiputadosActualesBinding)
       textViewNombreDiputadoActual.text = item.nombre
 
       linearLayoutDiputadosActuales.setOnClickListener {
-         startRotationAnimation(textViewNombreDiputadoActual, id = item.idDiputadoActual, web = item.paginaWeb)
+         startRotationAnimation(
+            textViewNombreDiputadoActual,
+            id = item.idDiputadoActual,
+            web = item.paginaWeb,
+         )
       }
    }
 
    private fun startRotationAnimation(
       view: View,
-      id: Int,
-      web: String
+      id: String,
+      web: String,
    ) {
       view
          .animate()
@@ -40,7 +44,13 @@ class DiputadosItemViewHolder(private val binding: ItemDiputadosActualesBinding)
             withEndAction {
                Navigation
                   .findNavController(view)
-                  .navigate(R.id.action_diputadosFragment_to_diputadoDetailFragment, bundleOf("id" to id, "web" to web))
+                  .navigate(
+                     R.id.action_diputadosFragment_to_diputadoDetailFragment,
+                     bundleOf(
+                        "id" to id,
+                        "web" to web,
+                     )
+                  )
             }
             start()
          }

@@ -7,12 +7,10 @@ class StaticUtils {
       const val TAG = "TAG-------->"
 
       /*database consts*/
-      const val DATABASE_VERSION = 1
+      const val DATABASE_VERSION = 7
       const val DATABASE_NAME = "monitor_db"
       const val TABLE_DIPUTADOS = "diputados"
-
-      /*Constantes enteras*/
-      const val YOYO_DURATION = 500L
+      const val TABLE_DIPUTADOS_DETAIL = "diputados_detail"
 
       /*constantes diputados actuales*/
       const val BASE_URL_DIP_ACT = "https://www.camara.cl/"

@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS
 
 @Dao
 interface DiputadosDao {
@@ -30,6 +31,9 @@ interface DiputadosDao {
    @Insert
    suspend fun insertDiputado(diputado: DiputadoEntity)
 
-   @Query("DELETE FROM DIPUTADOS")
+   @Query("DELETE FROM $TABLE_DIPUTADOS")
    suspend fun clearDiputadosTable()
+
+//   @Query("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='$TABLE_DIPUTADOS'")
+//   fun resetTable()
 }

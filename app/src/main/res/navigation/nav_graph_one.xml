@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/diputadoDetailFragment"
-        android:name="cl.antoinette.monitor_politico_econmico.ui.features.dipuatos_detail.DiputadoDetailFragment"
+        android:name="cl.antoinette.monitor_politico_econmico.ui.features.diputados_detail.DiputadoDetailFragment"
         android:label="DiputadoDetailFragment"
         tools:layout="@layout/fragment_diputado_detail">
         <action
