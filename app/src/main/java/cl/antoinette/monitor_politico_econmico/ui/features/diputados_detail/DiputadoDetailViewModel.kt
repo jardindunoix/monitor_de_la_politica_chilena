@@ -14,7 +14,7 @@ class DiputadoDetailViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-   suspend fun getDiputadosActualesList(
+   suspend fun getDiputadoDetail(
       id: String,
       url: String
    ): DiputadoDetail {

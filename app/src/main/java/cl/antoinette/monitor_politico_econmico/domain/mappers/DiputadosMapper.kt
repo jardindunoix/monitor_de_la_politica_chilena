@@ -20,7 +20,7 @@ fun DiputadoEntity.toDomain() = Diputado(
 )
 
 fun DiputadoDetailEntity.toDomain() = DiputadoDetail(
-   idDiputadoDetail = id,
+   idDiputadoDetail = diputadoId,
    nombre = nombre,
    region = region,
    comunas = comunas,
@@ -65,6 +65,8 @@ fun DiputadoDetailNetworkModel.toDomain() = DiputadoDetail(
 )
 
 fun DiputadoDetailNetworkModel.toEntity() = DiputadoDetailEntity(
+//   id = 0,
+   diputadoId = id,
    nombre = nombre,
    region = region,
    comunas = comunas,

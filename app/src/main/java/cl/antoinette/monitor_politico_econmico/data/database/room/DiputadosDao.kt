@@ -30,14 +30,18 @@ interface DiputadosDao {
    @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertDiputadosAll(diputados: List<DiputadoEntity>)
 
-   @Insert
+   @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertDiputadoEntity(diputado: DiputadoDetailEntity)
 
    @Query("DELETE FROM $TABLE_DIPUTADOS")
    suspend fun clearDiputadosTable()
 
+   @Query("DELETE FROM $TABLE_DIPUTADOS_DETAIL")
+   suspend fun clearDiputadosDetailTable()
+
+
    @Query("SELECT * FROM $TABLE_DIPUTADOS_DETAIL  WHERE id = :id")
-   suspend fun getDiputadoDetailEntity(id: String): DiputadoDetailEntity?
+   suspend fun getDiputadoDetailEntity(id: String): DiputadoDetailEntity
 
 //   @Query("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='$TABLE_DIPUTADOS'")
 //   fun resetTable()

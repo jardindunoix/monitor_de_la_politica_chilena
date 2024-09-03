@@ -7,7 +7,8 @@ class StaticUtils {
       const val TAG = "TAG-------->"
 
       /*database consts*/
-      const val DATABASE_VERSION = 9
+      const val DATABASE_VERSION_OLD = 11
+      const val DATABASE_VERSION = 12
       const val DATABASE_NAME = "monitor_db"
       const val TABLE_DIPUTADOS = "diputados"
       const val TABLE_DIPUTADOS_DETAIL = "diputados_detail"

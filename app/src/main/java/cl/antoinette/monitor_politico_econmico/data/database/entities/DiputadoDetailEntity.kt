@@ -22,7 +22,7 @@ data class DiputadoDetailEntity(
    val id: Int = 0,
 
    @ColumnInfo("diputado_id")
-   val diputadoId: String = "",
+   val diputadoId: String,
 
    @ColumnInfo("nombre")
    val nombre: String,

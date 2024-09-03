@@ -41,6 +41,7 @@ class DiputadosRepository @Inject constructor(
 
    suspend fun clearTables() {
       dao.clearDiputadosTable()
+      dao.clearDiputadosDetailTable()
    }
 
    suspend fun getDiputadoDetail(
@@ -50,19 +51,28 @@ class DiputadosRepository @Inject constructor(
 
       val diputadoDB = dao.getDiputadoDetailEntity(id)
 
-      return if (diputadoDB?.nombre == null) {
-         Log.d(
-            TAG,
-            "DETAIL WEBSCRAP: "
-         )
+      Log.d(
+         TAG,
+         "DETAIL: $diputadoDB "
+      )
+
+      return if (diputadoDB == null) {
          val diputadoWS = diputadoDetailWebscrapProvider.getDiputadoDetailNetwork(url)
+
+//         Log.d(
+//            TAG,
+//            "DETAIL WEBSCRAP: $diputadoWS "
+//         )
+
          dao.insertDiputadoEntity(diputadoWS.toEntity())
          diputadoWS.toDomain()
       } else {
-         Log.d(
-            TAG,
-            "DETAIL DATABASE: "
-         )
+
+         //         Log.d(
+//            TAG,
+//            "DETAIL DATABASE: "
+//         )
+
          diputadoDB.toDomain()
       }
 

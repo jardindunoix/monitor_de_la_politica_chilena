@@ -51,7 +51,16 @@ class DiputadoDetailFragment : Fragment() {
       viewEvents()
 
       lifecycleScope.launch(Dispatchers.IO) {
-         diputadosDetailViewModel.getDiputadosActualesList(idDiputado!!, webDiputado!!)
+         val dipDetail = diputadosDetailViewModel.getDiputadoDetail(
+            idDiputado!!,
+            webDiputado!!
+         )
+
+         Log.d(
+            TAG,
+            "dipDetail: $dipDetail"
+         )
+
       }
    }
 

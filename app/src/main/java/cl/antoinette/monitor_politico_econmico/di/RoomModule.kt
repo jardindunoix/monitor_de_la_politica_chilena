@@ -6,6 +6,10 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import cl.antoinette.monitor_politico_econmico.data.database.room.MonitorDatabase
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DATABASE_NAME
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DATABASE_VERSION
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.DATABASE_VERSION_OLD
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS
+import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS_DETAIL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +33,7 @@ object RoomModule {
          DATABASE_NAME
       )
       .fallbackToDestructiveMigration() // this make me loose data
-      // .addMigrations(MIGRATION_1_2) // this prevents data loose
+//      .addMigrations(MIGRATION_1_2) // this prevents data loose
       .build()
 
    @Singleton
@@ -39,11 +43,14 @@ object RoomModule {
 }
 
 val MIGRATION_1_2 = object : Migration(
-   1,
-   2
+   DATABASE_VERSION_OLD,
+   DATABASE_VERSION
 ) {
-   override fun migrate(database: SupportSQLiteDatabase) {
+   override fun migrate(db: SupportSQLiteDatabase) {
       // database.execSQL(...) EXAMPLE
+      db.execSQL("DROP TABLE IF EXISTS $TABLE_DIPUTADOS");
+      db.execSQL("DROP TABLE IF EXISTS $TABLE_DIPUTADOS_DETAIL");
+
       /*
       Migration using temporary table
 

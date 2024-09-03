@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName
 
 data class DiputadoDetailNetworkModel(
 
+   @SerializedName("id")
+   val id: String = "",
+
    @SerializedName("nombre")
    val nombre: String = "",
 

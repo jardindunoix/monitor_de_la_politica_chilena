@@ -1,7 +1,7 @@
 package cl.antoinette.monitor_politico_econmico.domain.pojos
 
 data class DiputadoDetail(
-   val idDiputadoDetail: Int = -1,
+   val idDiputadoDetail: String = "",
    val nombre: String = "",
    var region: String = "",
    var comunas: String = "",

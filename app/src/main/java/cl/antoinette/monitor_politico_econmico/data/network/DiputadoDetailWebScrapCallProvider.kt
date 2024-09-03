@@ -40,12 +40,6 @@ class DiputadoDetailWebScrapCallProvider @Inject constructor() {
             )
             .trim()
 
-
-         Log.d(
-            TAG,
-            "getDiputadoDetail: $picture $name "
-         )
-
          val data = articleElement
             .toString()
             .replace(
@@ -64,8 +58,10 @@ class DiputadoDetailWebScrapCallProvider @Inject constructor() {
          val periodo = data[3]
          val partido = data[4]
          val bancada = data[5]
+         val id = picture.split("GRCL")[1]
 
          return DiputadoDetailNetworkModel(
+            id = id,
             nombre = name,
             region = region,
             comunas = comunas,
