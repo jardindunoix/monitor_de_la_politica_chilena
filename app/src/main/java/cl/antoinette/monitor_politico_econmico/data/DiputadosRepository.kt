@@ -25,7 +25,7 @@ class DiputadosRepository @Inject constructor(
 
    suspend fun getDiputadosFromWebScrap(): List<Diputado> {
       val response = diputadosWebscrapProvider.getDiputadosActuales()
-      dao.insertDiputadosAll(response.map {
+      dao.insertAllDiputadosEntity(response.map {
          it!!.toEntity()
       })
       return response.map {

@@ -19,16 +19,16 @@ interface DiputadosDao {
    suspend fun getAllDiputados(): List<DiputadoEntity>
 
    @Query("SELECT * FROM diputados WHERE id = :id")
-   suspend fun getDiputado(id: String): DiputadoEntity
+   suspend fun getDiputadoEntity(id: String): DiputadoEntity
 
    @Update
-   suspend fun updateDiputado(diputado: DiputadoEntity)
+   suspend fun updateDiputadoEntity(diputado: DiputadoEntity)
 
    @Delete
-   suspend fun deleteDiputado(diputado: DiputadoEntity)
+   suspend fun deleteDiputadoEntity(diputado: DiputadoEntity)
 
    @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertDiputadosAll(diputados: List<DiputadoEntity>)
+   suspend fun insertAllDiputadosEntity(diputados: List<DiputadoEntity>)
 
    @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertDiputadoDetailEntity(diputado: DiputadoDetailEntity)
@@ -38,7 +38,6 @@ interface DiputadosDao {
 
    @Query("DELETE FROM $TABLE_DIPUTADOS_DETAIL")
    suspend fun clearDiputadosDetailTable()
-
 
    @Query("SELECT * FROM $TABLE_DIPUTADOS_DETAIL  WHERE id = :id")
    suspend fun getDiputadoDetailEntity(id: String): DiputadoDetailEntity
