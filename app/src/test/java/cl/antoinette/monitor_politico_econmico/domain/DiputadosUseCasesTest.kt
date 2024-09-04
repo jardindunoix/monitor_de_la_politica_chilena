@@ -10,6 +10,7 @@ import org.junit.Before
 import org.junit.Test
 
 class DiputadosUseCasesTest {
+
    @RelaxedMockK // if I dont define the class's answer it is automaticaclty created
 //   @MockK // requires all prepared
    private lateinit var repository: DiputadosRepository

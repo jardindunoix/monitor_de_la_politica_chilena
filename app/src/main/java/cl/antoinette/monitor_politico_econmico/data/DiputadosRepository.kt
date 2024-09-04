@@ -1,14 +1,13 @@
 package cl.antoinette.monitor_politico_econmico.data
 
 import android.util.Log
-import cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
 import cl.antoinette.monitor_politico_econmico.data.database.room.DiputadosDao
 import cl.antoinette.monitor_politico_econmico.data.database.room.DiputadosDetailDao
 import cl.antoinette.monitor_politico_econmico.data.mappers.entityDetailToDomain
+import cl.antoinette.monitor_politico_econmico.data.mappers.entityToDomain
 import cl.antoinette.monitor_politico_econmico.data.mappers.networkDetailToDomain
 import cl.antoinette.monitor_politico_econmico.data.mappers.networkDetailToEntity
 import cl.antoinette.monitor_politico_econmico.data.mappers.networkToDomain
-import cl.antoinette.monitor_politico_econmico.data.mappers.entityToDomain
 import cl.antoinette.monitor_politico_econmico.data.mappers.networkToEntity
 import cl.antoinette.monitor_politico_econmico.data.network.DiputadoDetailWebScrapProvider
 import cl.antoinette.monitor_politico_econmico.data.network.DiputadosWebScrapProvider
@@ -23,11 +22,6 @@ class DiputadosRepository @Inject constructor(
    private val diputadosWebscrapProvider: DiputadosWebScrapProvider,
    private val diputadoDetailWebscrapProvider: DiputadoDetailWebScrapProvider
 ) {
-
-   suspend fun getAllDiputadosFromDatabase(): List<Diputado> {
-      val response: List<DiputadoEntity> = dao.getAllDiputados()
-      return response.map { it.entityToDomain() }
-   }
 
    suspend fun getDiputadosFromWebScrap(): List<Diputado> {
       val response = diputadosWebscrapProvider.getDiputadosActuales()
@@ -56,13 +50,26 @@ class DiputadosRepository @Inject constructor(
    ): DiputadoDetail {
 
       val diputadoDB = daoDetail.getDiputadoDetail(id)
-      val diputadoWS = diputadoDetailWebscrapProvider.getDiputadoDetailNetwork(url)
-      return if (diputadoDB == null) {
-         daoDetail.insertDiputadoDetail(diputadoWS.networkDetailToEntity())
-         diputadoWS.networkDetailToDomain()
-      } else {
-         diputadoDB.entityDetailToDomain()
+
+      Log.d(
+         TAG,
+         "getDiputadoDetail: $diputadoDB"
+      )
+
+      return diputadoDB.let {
+         it
+            ?.entityDetailToDomain()
+            .let {
+               val diputadoWS = diputadoDetailWebscrapProvider.getDiputadoDetailNetwork(url)
+               daoDetail.insertDiputadoDetail(diputadoWS.networkDetailToEntity())
+               diputadoWS.networkDetailToDomain()
+            }
       }
+
+//      return if (diputadoDB == null) {
+//      } else {
+//         diputadoDB.entityDetailToDomain()
+//      }
 
    }
 }

@@ -16,16 +16,21 @@ class DiputadosUseCases @Inject constructor(
    }
 
    suspend operator fun invoke(): List<Diputado> {
-      val response = repository.getAllDiputadosFromDatabase()
-      return if (response.isEmpty()) {
-         repository.getDiputadosFromWebScrap()
-      } else {
-         repository.getDiputadosFromDatabase()
-      }
+      return repository
+         .getDiputadosFromDatabase()
+         .ifEmpty {
+            repository.getDiputadosFromWebScrap()
+         }
    }
 
-   suspend fun getDiputadoDetail(id: String,url: String): DiputadoDetail {
-      return repository.getDiputadoDetail(id, url)
+   suspend fun getDiputadoDetail(
+      id: String,
+      url: String
+   ): DiputadoDetail {
+      return repository.getDiputadoDetail(
+         id,
+         url
+      )
    }
 
 }

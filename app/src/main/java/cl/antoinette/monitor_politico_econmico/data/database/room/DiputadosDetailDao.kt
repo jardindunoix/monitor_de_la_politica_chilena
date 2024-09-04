@@ -17,7 +17,7 @@ interface DiputadosDetailDao {
    suspend fun clearDiputadosDetail()
 
    @Query("SELECT * FROM $TABLE_DIPUTADOS_DETAIL WHERE diputado_id = :id LIMIT 1")
-   suspend fun getDiputadoDetail(id: String): DiputadoDetailEntity
+   suspend fun getDiputadoDetail(id: String): DiputadoDetailEntity?
 
    @Query("SELECT * FROM $TABLE_DIPUTADOS_DETAIL")
    suspend fun getAllDiputadoDetail(): List<DiputadoDetailEntity>
