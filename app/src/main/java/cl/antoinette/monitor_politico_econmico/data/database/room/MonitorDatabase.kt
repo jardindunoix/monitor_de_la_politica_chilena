@@ -14,4 +14,5 @@ import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.D
 )
 abstract class MonitorDatabase : RoomDatabase() {
    abstract fun diputadosDao(): DiputadosDao
+   abstract fun diputadoDetailDao(): DiputadosDetailDao
 }

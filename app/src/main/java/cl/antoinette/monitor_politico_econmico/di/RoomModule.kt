@@ -40,6 +40,10 @@ object RoomModule {
    @Provides
    fun provideDiputadosDao(db: MonitorDatabase) = db.diputadosDao()
 
+   @Singleton
+   @Provides
+   fun provideDiputadoDetailDao(db: MonitorDatabase) = db.diputadoDetailDao()
+
 }
 
 val MIGRATION_1_2 = object : Migration(

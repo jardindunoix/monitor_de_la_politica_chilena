@@ -8,7 +8,7 @@ class StaticUtils {
 
       /*database consts*/
       const val DATABASE_VERSION_OLD = 11
-      const val DATABASE_VERSION = 12
+      const val DATABASE_VERSION = 13
       const val DATABASE_NAME = "monitor_db"
       const val TABLE_DIPUTADOS = "diputados"
       const val TABLE_DIPUTADOS_DETAIL = "diputados_detail"

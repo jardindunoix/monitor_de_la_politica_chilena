@@ -1,15 +1,13 @@
 package cl.antoinette.monitor_politico_econmico.data.network
 
-import android.util.Log
 import cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoDetailNetworkModel
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.BASE_URL_DIP_ACT
-import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 import javax.inject.Inject
 
-class DiputadoDetailWebScrapCallProvider @Inject constructor() {
+class DiputadoDetailWebScrapProvider @Inject constructor() {
 
    suspend fun getDiputadoDetailNetwork(url: String): DiputadoDetailNetworkModel {
       try {

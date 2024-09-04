@@ -15,10 +15,10 @@ import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.T
 interface DiputadosDao {
 
    /* suspend permite liberar el hilo principal y se puede usar en un viewmodel*//*pero si se quiere usar el livedata/flows/RxJava/Waba?? no se pone en suspend*/
-   @Query("SELECT * FROM diputados")
+   @Query("SELECT * FROM $TABLE_DIPUTADOS")
    suspend fun getAllDiputados(): List<DiputadoEntity>
 
-   @Query("SELECT * FROM diputados WHERE id = :id")
+   @Query("SELECT * FROM $TABLE_DIPUTADOS WHERE id = :id")
    suspend fun getDiputadoEntity(id: String): DiputadoEntity
 
    @Update
@@ -30,18 +30,6 @@ interface DiputadosDao {
    @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun insertAllDiputadosEntity(diputados: List<DiputadoEntity>)
 
-   @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insertDiputadoDetailEntity(diputado: DiputadoDetailEntity)
-
    @Query("DELETE FROM $TABLE_DIPUTADOS")
    suspend fun clearDiputadosTable()
-
-   @Query("DELETE FROM $TABLE_DIPUTADOS_DETAIL")
-   suspend fun clearDiputadosDetailTable()
-
-   @Query("SELECT * FROM $TABLE_DIPUTADOS_DETAIL  WHERE id = :id")
-   suspend fun getDiputadoDetailEntity(id: String): DiputadoDetailEntity
-
-//   @Query("UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='$TABLE_DIPUTADOS'")
-//   fun resetTable()
 }

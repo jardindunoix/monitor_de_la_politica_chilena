@@ -1,7 +1,6 @@
 package cl.antoinette.monitor_politico_econmico.ui.features.diputados_detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadoDetailBinding
-import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -59,20 +57,21 @@ class DiputadoDetailFragment : Fragment() {
          )
 
          withContext(Dispatchers.Main) {
+            val icon = dipDetail.picture
 
-           with(binding){
-              Picasso
-                 .get()
-                 .load(dipDetail.picture)
-                 .into(picture)
-             nameDetail.text = dipDetail.nombre
-             partidoDetail.text = dipDetail.partido
-             bancadaDetail.text = dipDetail.bancada
-             distritoDetail.text = dipDetail.distrito
-             regionDetail.text = dipDetail.region
-             comunasDetail.text = dipDetail.comunas
-             periodoDetail.text = dipDetail.periodo
-           }
+            with(binding) {
+               Picasso
+                  .get()
+                  .load(icon)
+                  .into(picture)
+               nameDetail.text = dipDetail.nombre
+               partidoDetail.text = dipDetail.partido
+               bancadaDetail.text = dipDetail.bancada
+               distritoDetail.text = dipDetail.distrito
+               regionDetail.text = dipDetail.region
+               comunasDetail.text = dipDetail.comunas
+               periodoDetail.text = dipDetail.periodo
+            }
 
          }
       }

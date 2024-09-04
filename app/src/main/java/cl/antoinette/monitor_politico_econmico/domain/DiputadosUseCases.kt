@@ -11,7 +11,7 @@ class DiputadosUseCases @Inject constructor(
 ) {
 
    suspend fun clearData() {
-      repository.clearTables()
+      repository.clearAllTables()
       delay(800)
    }
 

@@ -10,7 +10,7 @@ import org.jsoup.select.Elements
 import java.util.stream.Collectors
 import javax.inject.Inject
 
-class DiputadosWebScrapCallProvider @Inject constructor() {
+class DiputadosWebScrapProvider @Inject constructor() {
 
    private var diputadosList = mutableListOf<DiputadoNetworkModel>()
 

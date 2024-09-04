@@ -26,9 +26,6 @@ data class DiputadoEntity(
    @ColumnInfo("pagina_web")
    val paginaWeb: String,
 
-   @ColumnInfo("mail")
-   val mail: String,
-
    @ColumnInfo("picture")
-   val picture: String
+   val picture: String = "",
 )

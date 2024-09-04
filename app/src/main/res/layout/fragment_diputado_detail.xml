@@ -55,7 +55,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_mark"
             tools:src="@drawable/portada"
-
             />
 
 
@@ -66,6 +65,8 @@
         android:id="@+id/scrollview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,9 +75,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/name_detail"
@@ -90,7 +89,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="chorro name" />
+                tools:text="No hay dato por el momento" />
 
             <TextView
                 android:id="@+id/partido_detail"
@@ -104,7 +103,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_detail"
-                tools:text="partido: del chorro" />
+                android:text="partido: del chorro" />
 
             <TextView
                 android:id="@+id/bancada_detail"
@@ -118,7 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/partido_detail"
-                tools:text="bancada: del chorro" />
+                tools:text="bancada: del chorro del chorro del chorro del chorro del chorro" />
 
             <TextView
                 android:id="@+id/distrito_detail"
@@ -160,7 +159,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/region_detail"
-                tools:text="comunas del chorro" />
+                tools:text="comunas del chorro comunas del chorro comunas del chorro comunas del chorro comunas del chorro comunas del chorro comunas del chorro comunas del chorro " />
 
             <TextView
                 android:id="@+id/periodo_detail"
