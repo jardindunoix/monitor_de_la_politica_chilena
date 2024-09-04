@@ -13,11 +13,13 @@ class DiputadoDetailViewModel @Inject constructor(
    connectivityRepository: ConnectivityRepository
 ) : ViewModel() {
 
-
    suspend fun getDiputadoDetail(
       id: String,
       url: String
    ): DiputadoDetail {
-      return diputadosUseCase.getDiputadoDetail(id, url)
+      return diputadosUseCase.getDiputadoDetail(
+         id,
+         url
+      )
    }
 }

@@ -34,8 +34,8 @@
     <!--picture-->
     <ImageView
         android:id="@+id/picture"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/content_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

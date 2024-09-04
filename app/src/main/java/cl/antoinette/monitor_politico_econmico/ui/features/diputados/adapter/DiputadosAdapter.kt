@@ -14,7 +14,11 @@ class DiputadosAdapter(
       parent: ViewGroup,
       viewType: Int
    ): DiputadosBaseViewHolder<*> {
-      val binding = ItemDiputadosActualesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+      val binding = ItemDiputadosActualesBinding.inflate(
+         LayoutInflater.from(parent.context),
+         parent,
+         false
+      )
       return DiputadosItemViewHolder(binding)
    }
 
@@ -24,11 +28,10 @@ class DiputadosAdapter(
    ) {
 
       when (holder) {
-         is DiputadosItemViewHolder -> holder.bind(list[position],)
+         is DiputadosItemViewHolder -> holder.bind(list[position])
       }
    }
 
-   override fun getItemCount() = list.size
 
    fun setItemInTheView(diputadosActuales: List<Diputado>?) {
       if (diputadosActuales != null) {
@@ -37,4 +40,5 @@ class DiputadosAdapter(
       }
    }
 
+   override fun getItemCount() = list.size
 }

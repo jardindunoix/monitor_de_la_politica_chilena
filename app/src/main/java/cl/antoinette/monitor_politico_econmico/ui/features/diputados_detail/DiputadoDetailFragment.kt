@@ -12,9 +12,11 @@ import androidx.navigation.fragment.findNavController
 import cl.antoinette.monitor_politico_econmico.R
 import cl.antoinette.monitor_politico_econmico.databinding.FragmentDiputadoDetailBinding
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TAG
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class DiputadoDetailFragment : Fragment() {
@@ -60,7 +62,20 @@ class DiputadoDetailFragment : Fragment() {
             TAG,
             "dipDetail: $dipDetail"
          )
+         withContext(Dispatchers.Main) {
 
+            Picasso
+               .get()
+               .load(dipDetail.picture)
+               .into(binding.picture)
+            binding.nameDetail.text = dipDetail.nombre
+            binding.partidoDetail.text = dipDetail.partido
+            binding.bancadaDetail.text = dipDetail.bancada
+            binding.distritoDetail.text = dipDetail.distrito
+            binding.regionDetail.text = dipDetail.region
+            binding.comunasDetail.text = dipDetail.comunas
+            binding.periodoDetail.text = dipDetail.periodo
+         }
       }
    }
 
