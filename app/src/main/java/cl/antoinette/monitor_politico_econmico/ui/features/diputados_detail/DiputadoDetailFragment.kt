@@ -58,23 +58,22 @@ class DiputadoDetailFragment : Fragment() {
             webDiputado!!
          )
 
-         Log.d(
-            TAG,
-            "dipDetail: $dipDetail"
-         )
          withContext(Dispatchers.Main) {
 
-            Picasso
-               .get()
-               .load(dipDetail.picture)
-               .into(binding.picture)
-            binding.nameDetail.text = dipDetail.nombre
-            binding.partidoDetail.text = dipDetail.partido
-            binding.bancadaDetail.text = dipDetail.bancada
-            binding.distritoDetail.text = dipDetail.distrito
-            binding.regionDetail.text = dipDetail.region
-            binding.comunasDetail.text = dipDetail.comunas
-            binding.periodoDetail.text = dipDetail.periodo
+           with(binding){
+              Picasso
+                 .get()
+                 .load(dipDetail.picture)
+                 .into(picture)
+             nameDetail.text = dipDetail.nombre
+             partidoDetail.text = dipDetail.partido
+             bancadaDetail.text = dipDetail.bancada
+             distritoDetail.text = dipDetail.distrito
+             regionDetail.text = dipDetail.region
+             comunasDetail.text = dipDetail.comunas
+             periodoDetail.text = dipDetail.periodo
+           }
+
          }
       }
    }
