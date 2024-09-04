@@ -11,8 +11,9 @@ import org.junit.Test
 
 class DiputadosUseCasesTest {
 
-   @RelaxedMockK // if I dont define the class's answer it is automaticaclty created
-//   @MockK // requires all prepared
+   //   @MockK // requires all prepared
+// if I dont define the class's answer it is automaticaclty created
+   @RelaxedMockK
    private lateinit var repository: DiputadosRepository
    private lateinit var dipUseCase: DiputadosUseCases
 
@@ -26,10 +27,9 @@ class DiputadosUseCasesTest {
    @Test
    fun `when database return empty list then the webscrap is called`(): Unit = runBlocking {
 //GIVEN
-//      val dbResponse = repository.getDiputadosFromDatabase()
       coEvery { repository.getDiputadosFromDatabase() } returns emptyList()
 //WHEN
-//      val useCase = dipUseCase()
+      dipUseCase()
 //THEN
       coVerify(exactly = 1) { repository.getDiputadosFromWebScrap() }
    }

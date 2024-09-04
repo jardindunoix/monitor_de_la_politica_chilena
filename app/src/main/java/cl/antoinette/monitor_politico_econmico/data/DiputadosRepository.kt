@@ -66,10 +66,5 @@ class DiputadosRepository @Inject constructor(
             }
       }
 
-//      return if (diputadoDB == null) {
-//      } else {
-//         diputadoDB.entityDetailToDomain()
-//      }
-
    }
 }
