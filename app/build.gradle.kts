@@ -79,11 +79,6 @@ android {
          )
          applicationIdSuffix = ".MonitorPolitico"
          versionNameSuffix = "1_MonitorPolitico"
-         buildConfigField(
-            "String",
-            "URL_BASE",
-            "\"https://back.sellers-info.cl/api/charger/\""
-         )
       }
    }
 
@@ -98,6 +93,7 @@ android {
 }
 
 dependencies {
+
    implementation(libs.androidx.appcompat)
 
    //*splashscreen*//*
@@ -157,6 +153,7 @@ dependencies {
    testImplementation(libs.mokk)
    testImplementation(libs.mockitocore)
    testImplementation(libs.mockitoinline)
+
 // TEST unitarios
    androidTestImplementation(libs.androidx.junit)
    androidTestImplementation(libs.androidx.espresso.core)
