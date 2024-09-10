@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#-keep class cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoEntity
+#-keep class cl.antoinette.monitor_politico_econmico.data.database.entities.DiputadoDetailEntity
+#-keep class cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoDetailNetworkModel
+#-keep class cl.antoinette.monitor_politico_econmico.data.network.model.DiputadoNetworkModel
+#-keep class cl.antoinette.monitor_politico_econmico.domain.pojos.Diputado
+#-keep class cl.antoinette.monitor_politico_econmico.domain.pojos.DiputadoDetail
+
