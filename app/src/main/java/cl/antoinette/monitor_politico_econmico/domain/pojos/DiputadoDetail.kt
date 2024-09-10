@@ -1,5 +1,8 @@
 package cl.antoinette.monitor_politico_econmico.domain.pojos
 
+import androidx.annotation.Keep
+
+@Keep
 data class DiputadoDetail(
    val idDiputadoDetail: String = "",
    val nombre: String = "",

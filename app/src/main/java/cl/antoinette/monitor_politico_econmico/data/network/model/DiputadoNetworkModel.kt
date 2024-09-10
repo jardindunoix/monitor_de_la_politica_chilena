@@ -1,7 +1,9 @@
 package cl.antoinette.monitor_politico_econmico.data.network.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class DiputadoNetworkModel(
    @SerializedName("id")
    var id: String = "",

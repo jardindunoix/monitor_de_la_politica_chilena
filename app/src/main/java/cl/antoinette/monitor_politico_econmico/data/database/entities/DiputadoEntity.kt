@@ -1,10 +1,12 @@
 package cl.antoinette.monitor_politico_econmico.data.database.entities
 
+import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import cl.antoinette.monitor_politico_econmico.utilities.StaticUtils.Companion.TABLE_DIPUTADOS
 
+@Keep
 @Entity(TABLE_DIPUTADOS)
 data class DiputadoEntity(
    @PrimaryKey(autoGenerate = false)
